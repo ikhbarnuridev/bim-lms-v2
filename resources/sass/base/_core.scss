@@ -1,0 +1,22 @@
+body {
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    font-family: "Inter", serif;
+}
+
+table {
+    font-size: 0.875rem;
+
+    > th {
+        font-weight: 600;
+    }
+
+    > th, td {
+        padding: 14px 12px !important;
+    }
+
+    .dropdown {
+        position: static !important;
+    }
+}

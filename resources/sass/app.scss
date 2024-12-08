@@ -1,0 +1,24 @@
+// Abstracts
+@import "abstracts/variables";
+
+// Vendors
+@import "vendors/coreui";
+@import "vendors/simplebar";
+
+// Base
+@import "base/core";
+
+// Components
+@import "components/card";
+@import "components/form";
+@import "components/scrollbar";
+
+// Layout
+@import "layout/example";
+
+// Themes
+@import "themes/app";
+@import "themes/default";
+
+// Pages
+@import "pages/example";
