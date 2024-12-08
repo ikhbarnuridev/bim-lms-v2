@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Profile\UpdateRequest;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
@@ -27,8 +26,8 @@ class ProfileController extends Controller
             $user = auth()->user();
 
             if (isset($validatedData['photo'])) {
-                if ($user->photo != null && file_exists(public_path('storage/' . $user->photo))) {
-                    File::delete(public_path('storage/' . $user->photo));
+                if ($user->photo != null && file_exists(public_path('storage/'.$user->photo))) {
+                    File::delete(public_path('storage/'.$user->photo));
                 }
 
                 $validatedData['photo'] = $validatedData['photo']->store('photos', 'public');

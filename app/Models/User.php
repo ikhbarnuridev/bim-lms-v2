@@ -12,7 +12,7 @@ use Wildside\Userstamps\Userstamps;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, Userstamps;
+    use HasApiTokens, HasFactory, HasRoles, Notifiable, Userstamps;
 
     /**
      * The attributes that are mass assignable.
