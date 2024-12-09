@@ -1,3 +1,7 @@
 #default {
-
+    #login-nav {
+        @media screen and (max-width: map-get($container-max-widths, 'sm')) {
+            border-top: var(--cui-border-width) var(--cui-border-style) var(--cui-border-color) !important;
+        }
+    }
 }

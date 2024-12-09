@@ -1,0 +1,21 @@
+.nav-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: rgb(242.25, 242.25, 242.25);
+        color: $black;
+    }
+
+    &.active {
+        background-color: rgb(242.25, 242.25, 242.25);
+        border-left: 2px solid $black;
+
+        @media screen and (min-width: map-get($container-max-widths, 'lg')) {
+            border-left: 0;
+            border-bottom: 2px solid $black;
+        }
+    }
+}
+

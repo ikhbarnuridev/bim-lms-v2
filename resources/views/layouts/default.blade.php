@@ -20,6 +20,8 @@
 </head>
 <body id="default">
 
+@include('layouts.default.navbar')
+
 @yield('content')
 
 @impersonating()
