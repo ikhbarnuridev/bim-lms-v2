@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg p-lg-0 shadow-sm">
+<nav class="navbar fixed-top navbar-expand-lg p-lg-0 shadow-sm bg-white">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 d-none d-lg-block py-3" href="{{ url()->current() }}"
            style="margin-right: 120px">
@@ -6,27 +6,28 @@
             <span class="fw-semibold">BIM-LMS</span>
         </a>
 
-        <button class="btn no-outline d-lg-none" type="button" data-coreui-toggle="offcanvas"
+        <button class="btn no-outline px-0 d-lg-none" type="button" data-coreui-toggle="offcanvas"
                 data-coreui-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <x-heroicon-o-bars-3 height="30" width="30"/>
         </button>
 
-        <ul class="header-nav d-lg-none">
-            <li class="nav-item dropdown">
-                <a class="nav-link p-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                   aria-expanded="false">
-                    <img class="rounded-circle" src="https://xsgames.co/randomusers/avatar.php?g=pixel" alt=""
-                         style="height: 40px;width: 40px">
-                    <small class="ms-1 d-none d-lg-inline"></small>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end mt-3">
-                    <a class="dropdown-item" href="{{ route('login') }}">
-
-                        Log in
+        @if(auth()->user())
+            <ul class="header-nav d-lg-none">
+                <li class="nav-item dropdown">
+                    <a class="nav-link p-0 rounded-circle border" data-coreui-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        <img class="avatar avatar-md" src="https://xsgames.co/randomusers/avatar.php?g=pixel" alt="">
                     </a>
-                </div>
-            </li>
-        </ul>
+                    <div class="dropdown-menu dropdown-menu-end mt-3">
+                        <a class="dropdown-item d-flex gap-2 align-items-end" href="{{ route('logout') }}">
+                            <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
+                            Log Out
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        @endif
 
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
              aria-labelledby="offcanvasNavbarLabel">
@@ -36,7 +37,7 @@
                     <span class="fw-semibold">BIM-LMS</span>
                 </a>
                 <button type="button"
-                        class="btn no-outline"
+                        class="btn no-outline px-0"
                         data-coreui-dismiss="offcanvas"
                 >
                     <x-heroicon-o-x-mark height="30" width="30"/>
@@ -57,13 +58,31 @@
                 </ul>
 
                 <ul id="login-nav" class="navbar-nav justify-content-end flex-grow-1 mt-5 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link p-3 d-flex gap-2 align-items-center {{ request()->is('auth/login') ? 'active' : '' }}"
-                           href="{{ route('login') }}">
-                            <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
-                            Log In
-                        </a>
-                    </li>
+                    @if(auth()->user())
+                        <li class="nav-item dropdown d-none d-lg-flex align-items-center justify-content-center">
+                            <a class="rounded-circle border" data-coreui-toggle="dropdown" href="#"
+                               role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">
+                                <img class="avatar avatar-xl" src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                                     alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end mt-1">
+                                <a class="dropdown-item d-flex gap-2 align-items-end" href="{{ route('logout') }}">
+                                    <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
+                                    Log Out
+                                </a>
+                            </div>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link p-3 d-flex gap-2 align-items-center {{ request()->is('auth/login') ? 'active' : '' }}"
+                               href="{{ route('login') }}">
+                                <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
+                                Log In
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

@@ -1,7 +1,21 @@
 #default {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 92px;
+
+    @media screen and (max-width: map-get($container-max-widths, 'sm')) {
+        padding-top: 60px;
+    }
+
     #login-nav {
         @media screen and (max-width: map-get($container-max-widths, 'sm')) {
             border-top: var(--cui-border-width) var(--cui-border-style) var(--cui-border-color) !important;
         }
+    }
+
+    footer {
+        margin-top: auto;
+        padding: 62px 0;
     }
 }

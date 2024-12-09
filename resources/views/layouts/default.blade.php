@@ -24,6 +24,8 @@
 
 @yield('content')
 
+@include('layouts.default.footer')
+
 @impersonating()
 <a href="{{ route('impersonate.leave') }}"
    class="bg-black text-white text-center w-100 py-3 text-decoration-none position-absolute bottom-0"
