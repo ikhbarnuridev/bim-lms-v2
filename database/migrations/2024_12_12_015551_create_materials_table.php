@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('photo')->nullable();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('content');
+            $table->unsignedInteger('order');
+            $table->unsignedTinyInteger('chapter_id');
 
             $table->timestamps();
             $table->softDeletes();
@@ -25,6 +25,8 @@ return new class extends Migration
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();
+
+            $table->unique(['order', 'chapter_id']);
         });
     }
 
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('materials');
     }
 };
