@@ -1,8 +1,6 @@
 @extends('layouts.default')
 
 @section('content')
-    <x-section.page-title title="Login"/>
-
     <main id="login">
         <section id="login-form">
             <div class="container">
@@ -10,20 +8,12 @@
                     <div class="col-12 col-lg-4 offset-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    BIM LMS
-                                    &nbsp;›&nbsp;
+                                <h4 class="card-title text-center mb-5 fw-bold">
                                     Login
-                                </h5>
-                                <hr>
+                                </h4>
 
                                 @if(session()->has('error'))
-                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                        <x-heroicon-o-exclamation-triangle class="me-2" height="24" width="24"/>
-                                        <div>
-                                            {{ session()->get('error') }}
-                                        </div>
-                                    </div>
+                                    <x-alert.danger message="{{ session()->get('error') }}" />
                                 @endif
 
                                 <form action="{{ route('login.submit') }}" method="post">
