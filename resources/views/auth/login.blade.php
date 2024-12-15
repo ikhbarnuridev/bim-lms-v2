@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    <x-section.page-title title="Log In"/>
+    <x-section.page-title title="Login"/>
 
     <main id="login">
         <section id="login-form">
@@ -13,7 +13,7 @@
                                 <h5 class="card-title">
                                     BIM LMS
                                     &nbsp;›&nbsp;
-                                    Log In
+                                    Login
                                 </h5>
                                 <hr>
 
@@ -72,8 +72,8 @@
                                                for="rememberMe">{{ __('Remember me') }}</label>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">
-                                        Log In
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        Login
                                     </button>
                                 </form>
                             </div>

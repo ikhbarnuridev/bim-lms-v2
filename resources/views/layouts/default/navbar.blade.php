@@ -22,7 +22,7 @@
                     <div class="dropdown-menu dropdown-menu-end mt-3">
                         <a class="dropdown-item d-flex gap-2 align-items-end" href="{{ route('logout') }}">
                             <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
-                            Log Out
+                            Logout
                         </a>
                     </div>
                 </li>
@@ -70,7 +70,7 @@
                             <div class="dropdown-menu dropdown-menu-end mt-1">
                                 <a class="dropdown-item d-flex gap-2 align-items-end" href="{{ route('logout') }}">
                                     <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
-                                    Log Out
+                                    Logout
                                 </a>
                             </div>
                         </li>
@@ -79,7 +79,7 @@
                             <a class="nav-link p-3 d-flex gap-2 align-items-center {{ request()->is('auth/login') ? 'active' : '' }}"
                                href="{{ route('login') }}">
                                 <x-heroicon-m-arrow-right-start-on-rectangle height="24" width="24"/>
-                                Log In
+                                Login
                             </a>
                         </li>
                     @endif
