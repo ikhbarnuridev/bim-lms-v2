@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Auth\Authenticatable;
 
 class LoginController extends Controller
 {
+    use Authenticatable;
+
     public function __invoke()
     {
         return view('auth.login', [
@@ -19,7 +22,7 @@ class LoginController extends Controller
         $validatedData = $request->validated();
 
         $credential = [
-            'email' => $validatedData['email'],
+            'username' => $validatedData['username'],
             'password' => $validatedData['password'],
         ];
 

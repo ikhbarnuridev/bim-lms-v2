@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -49,8 +50,28 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function isAdmin(): bool
+    {
+        return $this->hasRole('admin');
+    }
+
     public function student(): HasOne
     {
         return $this->hasOne(Student::class);
+    }
+
+    public function canImpersonate(): bool
+    {
+        return $this->isAdmin();
+    }
+
+    public function canBeImpersonated(): bool
+    {
+        return ! $this->isAdmin();
+    }
+
+    public function getPhotoUrl(): ?string
+    {
+        return $this->photo ? Storage::url($this->photo) : "https://ui-avatars.com/api/?name=$this->name";
     }
 }
