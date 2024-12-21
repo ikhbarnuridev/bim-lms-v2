@@ -2,6 +2,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    border-radius: 0 !important;
 
     &:hover {
         background-color: rgb(242.25, 242.25, 242.25);
@@ -19,3 +20,25 @@
     }
 }
 
+#app {
+    .nav-link {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        border-radius: 0 !important;
+
+        &:hover {
+            background-color: rgb(242.25, 242.25, 242.25);
+            color: $black;
+        }
+
+        &.active {
+            background-color: rgb(242.25, 242.25, 242.25);
+            border-left: 2px solid $black;
+
+            @media screen and (min-width: map-get($container-max-widths, 'lg')) {
+                border-bottom: 0;
+            }
+        }
+    }
+}

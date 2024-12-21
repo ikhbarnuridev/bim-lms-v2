@@ -9,16 +9,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}"/>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}"/>
     <link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'Page Title' }} - {{ env('APP_NAME') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-            rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css" rel="stylesheet"/>
 </head>
 <body id="app">
 
@@ -28,8 +27,17 @@
     @include('layouts.app.header')
 
     <main class="body flex-grow-1">
-        <div class="container-lg px-lg-5 pb-5">
-            @yield('content')
+        <div class="container-lg">
+            <h1 class="fw-bold m-0" style="font-size: 30px">
+                {{ $title ?? 'Page Title' }}
+            </h1>
+
+            <div style="padding: 32px 0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequatur dicta eaque natus
+                perferendis ullam voluptatem voluptates? Adipisci asperiores autem neque. Consequuntur delectus dolor
+                eos ipsum, mollitia nisi praesentium similique!
+                @yield('content')
+            </div>
         </div>
     </main>
 </div>
@@ -115,7 +123,7 @@
         }).then(function () {
             swal.close();
             @if(isset(session('error')['onClose']))
-                    {!! session('error')['onClose'] !!}();
+                {!! session('error')['onClose'] !!}();
             @endif
         });
         @endif

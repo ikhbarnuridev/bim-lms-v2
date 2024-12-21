@@ -4,6 +4,12 @@
     min-height: 100vh;
     padding-top: 92px;
 
+    .offcanvas-body {
+        @media screen and (max-width: map-get($container-max-widths, 'sm')) {
+            padding: 32px 0;
+        }
+    }
+
     @media screen and (max-width: map-get($container-max-widths, 'sm')) {
         padding-top: 60px;
     }

@@ -72,7 +72,7 @@
     "Hello!": "Halo!",
     "Hide": "Bersembunyi",
     "Hide :name": "Sembunyikan :name",
-    "Home": "Rumah",
+    "Home": "Beranda",
     "HTTP Version Not Supported": "Versi HTTP tidak mendukung",
     "I'm a teapot": "Saya teko",
     "If you did not create an account, no further action is required.": "Jika Anda tidak membuat akun, Anda tidak perlu melakukan apapun.",
@@ -97,8 +97,8 @@
     "Locked": "Terkunci",
     "Log In": "Masuk",
     "Log Out": "Keluar",
-    "Login": "Masuk",
-    "Logout": "Keluar",
+    "Login": "Login",
+    "Logout": "Logout",
     "Loop Detected": "Terdeteksi perulangan",
     "Maintenance Mode": "Mode pemeliharaan",
     "Method Not Allowed": "Metode tidak diizinkan",
@@ -220,5 +220,9 @@
     "Yes": "Ya",
     "You are receiving this email because we received a password reset request for your account.": "Anda menerima surel ini karena kami menerima permintan pengaturan ulang kata sandi untuk akun anda.",
     "Remember me": "Ingat saya",
-    "Incorrect email or password": "Email atau password salah"
+    "Incorrect email or password": "Email atau password salah",
+    "My Home": "Beranda Saya",
+    "Student": "Peserta Didik",
+    "Material": "Materi",
+    "Exercises": "Latihan"
 }

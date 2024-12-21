@@ -27,7 +27,7 @@ class LoginController extends Controller
         ];
 
         if (auth()->attempt($credential, $validatedData['remember_me'] ?? false)) {
-            return redirect()->route('home');
+            return redirect()->route('my-home');
         }
 
         session()->flash('error', __('Incorrect email or password'));

@@ -24,7 +24,7 @@
                             <div class="col-6 col-lg-12">
                                 <ul class="navbar-nav small">
                                     <li class="nav-item mb-3">
-                                        <a class="text-decoration-none text-black" href="{{ route('landing') }}">
+                                        <a class="text-decoration-none text-black" href="{{ route('home') }}">
                                             Beranda
                                         </a>
                                     </li>
