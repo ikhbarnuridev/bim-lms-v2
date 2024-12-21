@@ -9,7 +9,9 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return view('resource.student.index');
+        return view('resource.student.index', [
+            'title' => __('Student List'),
+        ]);
     }
 
     public function create()

@@ -28,16 +28,7 @@
 
     <main class="body flex-grow-1">
         <div class="container-lg">
-            <h1 class="fw-bold m-0" style="font-size: 30px">
-                {{ $title ?? 'Page Title' }}
-            </h1>
-
-            <div style="padding: 32px 0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequatur dicta eaque natus
-                perferendis ullam voluptatem voluptates? Adipisci asperiores autem neque. Consequuntur delectus dolor
-                eos ipsum, mollitia nisi praesentium similique!
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </main>
 </div>

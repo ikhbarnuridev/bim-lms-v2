@@ -9,7 +9,9 @@ class MaterialController extends Controller
 {
     public function index()
     {
-        return view('resource.material.index');
+        return view('resource.material.index', [
+            'title' => __('Material List'),
+        ]);
     }
 
     public function create()
