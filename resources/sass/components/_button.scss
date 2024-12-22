@@ -31,8 +31,3 @@
     z-index: 1000;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.fab:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
