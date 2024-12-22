@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row row-gap-4">
+    <div class="row row-gap-32">
         <div class="col-12">
             <div class="card">
                 <div class="card-body p-4">

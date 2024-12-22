@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Models\Material;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -11,6 +12,9 @@ class MaterialController extends Controller
     {
         return view('resource.material.index', [
             'title' => __('Material List'),
+            'materials' => Material::query()
+                ->latest()
+                ->paginate(10)
         ]);
     }
 

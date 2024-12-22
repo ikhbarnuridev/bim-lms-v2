@@ -12,11 +12,19 @@ table {
         font-weight: 600;
     }
 
-    > th, td {
+    tr > th {
         padding: 14px 12px !important;
+    }
+
+    tr > td {
+        padding: 16px 12px !important;
     }
 
     .dropdown {
         position: static !important;
     }
+}
+
+.card-header, .card-footer {
+    padding: 12px 24px !important;
 }

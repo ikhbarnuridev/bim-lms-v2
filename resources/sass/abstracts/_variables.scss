@@ -2,8 +2,9 @@ $enable-deprecation-messages: false !default;
 
 // Colors
 $primary: #0790d9;
-$secondary: #fff;
 $dark: #252525;
+$body-tertiary-bg: #FAFAFA;
+$pagination-disabled-bg: $body-tertiary-bg;
 
 // Validation
 $enable-validation-icons: false;
