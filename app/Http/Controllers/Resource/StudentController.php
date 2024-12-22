@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -11,6 +12,9 @@ class StudentController extends Controller
     {
         return view('resource.student.index', [
             'title' => __('Student List'),
+            'students' => Student::query()
+                ->latest()
+                ->paginate(10),
         ]);
     }
 

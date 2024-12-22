@@ -12,9 +12,9 @@
                    role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="avatar avatar-md"
                          src="{{ auth()?->user()?->getPhotoUrl() }}"
-                         alt="{{ auth()?->user()?->name }}"
+                         alt="{{ Str::limit(auth()?->user()?->name, 20, '') }}"
                     >
-                    <small class="ms-2 d-none d-lg-inline">{{ auth()?->user()?->name }}</small>
+                    <small class="ms-2 d-none d-lg-inline">{{ Str::limit(auth()?->user()?->name, 20, '') }}</small>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end pt-0 mt-3" style="font-size: 14px">
                     <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top"

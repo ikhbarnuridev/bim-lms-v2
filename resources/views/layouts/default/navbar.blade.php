@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg p-lg-0 shadow-bottom" style="min-height: 64px">
+<nav class="navbar fixed-top navbar-expand-lg p-lg-0 shadow-bottom bg-white" style="min-height: 64px">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 d-none d-lg-block py-3" href="{{ url()->current() }}"
            style="margin-right: 120px">
@@ -95,7 +95,7 @@
                                aria-expanded="false">
                                 <img class="avatar avatar-md" src="{{ auth()?->user()?->getPhotoUrl() }}"
                                      alt="Photo Profile">
-                                <small class="ms-2 d-none d-lg-inline">{{ auth()?->user()?->name }}</small>
+                                <small class="ms-2 d-none d-lg-inline">{{ Str::limit(auth()?->user()?->name, 20, '') }}</small>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end pt-0 mt-2">
                                 <div

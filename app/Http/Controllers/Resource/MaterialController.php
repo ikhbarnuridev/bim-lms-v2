@@ -14,7 +14,7 @@ class MaterialController extends Controller
             'title' => __('Material List'),
             'materials' => Material::query()
                 ->latest()
-                ->paginate(10)
+                ->paginate(10),
         ]);
     }
 
