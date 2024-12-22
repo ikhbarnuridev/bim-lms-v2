@@ -5,3 +5,12 @@
         border: none !important;
     }
 }
+
+.btn-primary {
+    color: $white;
+
+    &:hover,
+    &:active:focus {
+        color: $white;
+    }
+}

@@ -21,23 +21,26 @@
 }
 
 #app {
-    .nav-link {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        border-radius: 0 !important;
+    .sidebar-nav {
+        .nav-link {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-radius: 0 !important;
+            color: $white;
 
-        &:hover {
-            background-color: rgb(242.25, 242.25, 242.25);
-            color: $black;
-        }
+            &:hover {
+                background-color: rgb(255, 255, 255, .2);
+                font-weight: 500;
+            }
 
-        &.active {
-            background-color: rgb(242.25, 242.25, 242.25);
-            border-left: 2px solid $black;
+            &.active {
+                background-color: rgb(255, 255, 255, .2);
+                border-left: 2px solid $white;
 
-            @media screen and (min-width: map-get($container-max-widths, 'lg')) {
-                border-bottom: 0;
+                @media screen and (min-width: map-get($container-max-widths, 'lg')) {
+                    border-bottom: 0;
+                }
             }
         }
     }

@@ -1,12 +1,12 @@
-<aside class="sidebar sidebar-fixed" id="sidebar">
-    <div class="sidebar-header shadow-bottom" style="min-height: 64px">
+<aside class="sidebar sidebar-fixed bg-primary" id="sidebar">
+    <div class="sidebar-header" style="min-height: 64px">
         <div class="sidebar-brand">
             <a class="sidebar-brand-full d-flex align-items-center text-decoration-none m-0"
                href="{{ url()->current() }}"
                tabindex="-1"
             >
                 <img src="{{ asset('assets/images/bim-logo.png') }}" alt="Logo"/>
-                <span class="ms-2 fw-semibold text-black" style="font-size: 20px">
+                <span class="ms-2 fw-semibold text-light" style="font-size: 20px">
                     BIM LMS
                 </span>
             </a>
@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <button class="btn no-outline px-0 d-lg-none text-black" type="button" data-coreui-dismiss="offcanvas"
+        <button class="btn no-outline px-0 d-lg-none text-light" type="button" data-coreui-dismiss="offcanvas"
                 data-coreui-theme="dark"
                 aria-label="Close"
                 onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()">

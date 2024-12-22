@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg p-lg-0 shadow-bottom bg-white" style="min-height: 64px">
+<nav class="navbar fixed-top navbar-expand-lg p-lg-0 shadow-bottom" style="min-height: 64px">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 d-none d-lg-block py-3" href="{{ url()->current() }}"
            style="margin-right: 120px">

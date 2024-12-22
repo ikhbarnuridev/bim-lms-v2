@@ -225,5 +225,7 @@
     "Student": "Peserta Didik",
     "Material": "Materi",
     "Exercises": "Latihan",
-    "You must log in first": "Anda harus login terlebih dahulu"
+    "You must log in first": "Anda harus login terlebih dahulu",
+    "Question": "Soal",
+    "Exercise": "Latihan"
 }

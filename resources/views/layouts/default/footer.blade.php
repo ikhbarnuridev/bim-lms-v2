@@ -1,4 +1,4 @@
-<footer class="bg-body-tertiary">
+<footer class="bg-dark text-light">
     <div class="container">
         <div class="row row-gap-5">
             <div class="col-12">
@@ -24,17 +24,17 @@
                             <div class="col-6 col-lg-12">
                                 <ul class="navbar-nav small">
                                     <li class="nav-item mb-3">
-                                        <a class="text-decoration-none text-black" href="{{ route('home') }}">
+                                        <a class="text-decoration-none text-light" href="{{ route('home') }}">
                                             Beranda
                                         </a>
                                     </li>
                                     <li class="nav-item mb-3">
-                                        <a class="text-decoration-none text-black" href="{{ route('help') }}">
+                                        <a class="text-decoration-none text-light" href="{{ route('help') }}">
                                             Bantuan
                                         </a>
                                     </li>
                                     <li class="nav-item mb-lg-3">
-                                        <a class="text-decoration-none text-black" href="{{ route('faq') }}">
+                                        <a class="text-decoration-none text-light" href="{{ route('faq') }}">
                                             FAQ
                                         </a>
                                     </li>
@@ -46,15 +46,15 @@
             </div>
             <div class="col-12">
                 <div class="d-flex flex-column flex-lg-row gap-4 justify-content-lg-center border-top pt-5 small">
-                    <a class="text-decoration-none text-black" href="{{ route('privacy-policy') }}">Privacy Policy</a>
-                    <a class="text-decoration-none text-black" href="{{ route('term-of-service') }}">Term of Service</a>
-                    <a class="text-decoration-none text-black" href="{{ route('contact-us') }}">Contact Us</a>
+                    <a class="text-decoration-none text-light" href="{{ route('privacy-policy') }}">Privacy Policy</a>
+                    <a class="text-decoration-none text-light" href="{{ route('term-of-service') }}">Term of Service</a>
+                    <a class="text-decoration-none text-light" href="{{ route('contact-us') }}">Contact Us</a>
                 </div>
             </div>
             <div class="col-12">
                 <p class="text-center small">
                     © 2024
-                    <a class="text-decoration-none text-black fw-semibold" href="https://bina-iman.com" target="_blank">
+                    <a class="text-decoration-none text-light fw-semibold" href="https://bina-iman.com" target="_blank">
                         BINA INSAN MADANI
                     </a>
                     ALL RIGHTS RESERVED.
