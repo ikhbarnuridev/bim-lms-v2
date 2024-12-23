@@ -34,6 +34,8 @@
             </a>
         </li>
 
+        <li class="nav-title">Manajemen Data</li>
+
         <li class="nav-item">
             <a class="nav-link py-3 @if(request()->is('student*')) active @endif"
                href="{{ route('student.index') }}"
@@ -49,6 +51,17 @@
             >
                 <x-heroicon-o-book-open class="me-2" height="24" width="24"/>
                 {{ __('Material') }}
+            </a>
+        </li>
+
+        <li class="nav-title">Bantuan dan Referensi</li>
+
+        <li class="nav-item">
+            <a class="nav-link py-3 @if(request()->is('guide*')) active @endif"
+               href="#"
+            >
+                <x-heroicon-o-information-circle class="me-2" height="24" width="24"/>
+                {{ __('User Guide') }}
             </a>
         </li>
     </ul>

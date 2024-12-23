@@ -6,6 +6,8 @@ class HelpController extends Controller
 {
     public function __invoke()
     {
-        return view('help');
+        return view('help', [
+            'title' => __('Help'),
+        ]);
     }
 }
