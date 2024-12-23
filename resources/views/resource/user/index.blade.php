@@ -75,7 +75,7 @@
                                                     <ul class="dropdown-menu mt-2"
                                                         style="font-size: 14px; min-width: 200px">
                                                         <li>
-                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item"
+                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item text-secondary"
                                                                href="{{ route('user.edit', $user->id) }}"
                                                             >
                                                                 <x-heroicon-m-eye
@@ -85,7 +85,7 @@
                                                         </li>
 
                                                         <li>
-                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item"
+                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item text-secondary"
                                                                href="{{ route('user.edit', $user->id) }}"
                                                             >
                                                                 <x-heroicon-m-pencil-square
