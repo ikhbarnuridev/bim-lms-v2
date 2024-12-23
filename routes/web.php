@@ -13,6 +13,7 @@ use App\Http\Controllers\MyHomeController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Resource\MaterialController;
 use App\Http\Controllers\Resource\StudentController;
+use App\Http\Controllers\Resource\UserController;
 use App\Http\Controllers\TermOfServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
+    Route::resource('user', UserController::class);
 
     Route::prefix('my-account')->name('my-account.')->group(function () {
         Route::get('/profile', ProfileController::class)->name('profile');

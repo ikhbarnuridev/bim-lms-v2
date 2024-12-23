@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,5 +21,13 @@ class StudentFactory extends Factory
             'nis' => $this->faker->unique()->randomNumber(9),
             'user_id' => UserFactory::new()->create(),
         ];
+    }
+
+    public function configure()
+    {
+        return parent::configure()
+            ->afterCreating(function (Student $student) {
+                $student->user->assignRole('student');
+            });
     }
 }

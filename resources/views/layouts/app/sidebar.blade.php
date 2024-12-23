@@ -54,6 +54,15 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link py-3 @if(request()->is('user*')) active @endif"
+               href="{{ route('user.index') }}"
+            >
+                <x-heroicon-o-users class="me-2" height="24" width="24"/>
+                {{ __('User') }}
+            </a>
+        </li>
+
         <li class="nav-title">Bantuan dan Referensi</li>
 
         <li class="nav-item">
