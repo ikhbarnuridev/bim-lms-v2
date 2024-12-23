@@ -9,6 +9,10 @@
     background-color: $white;
 }
 
-.card-header, .card-footer {
-    padding: 12px 24px !important;
+.card-header, .card-footer, .card-body {
+    padding: 12px 24px;
+}
+
+.card-title {
+    font-size: 24px;
 }
