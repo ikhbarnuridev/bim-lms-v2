@@ -8,3 +8,7 @@
     padding-bottom: 1rem;
     background-color: $white;
 }
+
+.card-header, .card-footer {
+    padding: 12px 24px !important;
+}
