@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h2 class="card-title mb-2">{{ __('Change Password') }}</h2>
                 <p class="text-muted small">
-                    Ubah password yang Anda gunakan untuk masuk ke aplikasi. Kata sandi ini harus terdiri dari
+                    Ubah password yang Anda gunakan untuk masuk ke aplikasi. Password harus terdiri dari
                     setidaknya 8 karakter.
                 </p>
 
@@ -16,8 +16,8 @@
                     <div class="row">
                         <div class="col-12 col-lg-4">
                             <div class="mb-3">
-                                <label for="username" class="form-label">
-                                    Username
+                                <label for="username" class="form-label required">
+                                    {{ __('Password') }}
                                 </label>
                                 <input
                                     type="text"
@@ -34,8 +34,8 @@
 
                         <div class="col-12 col-lg-4">
                             <div class="mb-3">
-                                <label for="password" class="form-label">
-                                    Password
+                                <label for="password" class="form-label required">
+                                    {{ __('New Password') }}
                                 </label>
                                 <input
                                     type="password"
@@ -52,8 +52,8 @@
 
                         <div class="col-12 col-lg-4">
                             <div class="mb-3">
-                                <label for="password" class="form-label">
-                                    Password
+                                <label for="password" class="form-label required">
+                                    {{ __('Confirm Password') }}
                                 </label>
                                 <input
                                     type="password"
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="text-end">
+                    <div class="text-end mt-2">
                         <button type="submit" class="btn btn-primary">
                             {{ __('Update') }}
                         </button>
