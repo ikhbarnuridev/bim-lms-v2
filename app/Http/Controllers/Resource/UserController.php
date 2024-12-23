@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         return view('resource.user.index', [
-            'title' => __('user List'),
+            'title' => __('User List'),
             'users' => User::query()
                 ->latest()
                 ->paginate(10),
