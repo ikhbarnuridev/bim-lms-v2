@@ -26,14 +26,7 @@
 
 @include('layouts.default.footer')
 
-@impersonating()
-<a href="{{ route('impersonate.leave') }}"
-   class="bg-black text-white text-center w-100 py-3 text-decoration-none position-absolute bottom-0"
-   style="position: absolute; z-index: 999999; font-size: 14px;">
-    <x-heroicon-o-arrow-left-end-on-rectangle/>
-    Tinggalkan Pengecekan Akun
-</a>
-@endImpersonating
+<x-section.impersonate/>
 
 {{-- Page Specific Scripts --}}
 @stack('scripts')

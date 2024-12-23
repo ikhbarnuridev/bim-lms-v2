@@ -35,13 +35,7 @@
 
 @yield('modals')
 
-@impersonating()
-<a href="{{ route('impersonate.leave') }}" class="bg-black text-white text-center w-100 py-3 text-decoration-none"
-   style="position: absolute; z-index: 999999; font-size: 14px;">
-    <x-heroicon-o-arrow-left-end-on-rectangle/>
-    Tinggalkan Pengecekan Akun
-</a>
-@endImpersonating
+<x-section.impersonate/>
 
 {{-- jQuery --}}
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
