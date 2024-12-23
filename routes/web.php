@@ -7,9 +7,10 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MyAccount\ChangePasswordController;
+use App\Http\Controllers\MyAccount\ProfileController;
 use App\Http\Controllers\MyHomeController;
 use App\Http\Controllers\PrivacyPolicyController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Resource\MaterialController;
 use App\Http\Controllers\Resource\StudentController;
 use App\Http\Controllers\TermOfServiceController;
@@ -33,7 +34,7 @@ Route::get('/privacy-policy', PrivacyPolicyController::class)->name('privacy-pol
 Route::get('/term-of-service', TermOfServiceController::class)->name('term-of-service');
 Route::get('/contact-us', ContactUsController::class)->name('contact-us');
 
-Route::prefix('auth')->group(function () {
+Route::prefix('auth')->name('auth.')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('/login', LoginController::class)->name('login');
         Route::post('/login', [LoginController::class, 'submit'])->name('login.submit');
@@ -50,8 +51,13 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
 
-    Route::get('/profile', ProfileController::class)->name('profile');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::prefix('my-account')->name('my-account.')->group(function () {
+        Route::get('/profile', ProfileController::class)->name('profile');
+        Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+        Route::get('/change-password', ChangePasswordController::class)->name('change-password');
+        Route::post('/change-password', [ChangePasswordController::class, 'update'])->name('change-password.update');
+    });
 });
 
 Route::get('/download', DownloadController::class)->name('download');

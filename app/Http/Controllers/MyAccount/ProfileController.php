@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\MyAccount;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\UpdateRequest;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,7 @@ class ProfileController extends Controller
 {
     public function __invoke()
     {
-        return view('profile', [
+        return view('my-account.profile', [
             'title' => __('Profile'),
         ]);
     }

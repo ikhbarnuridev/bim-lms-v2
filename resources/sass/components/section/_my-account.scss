@@ -1,0 +1,27 @@
+.my-account {
+    .sidebar-nav {
+        padding-top: 0 !important;
+
+        .nav-link {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-radius: 0 !important;
+            color: $black !important;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, .1) !important;
+                font-weight: 500;
+            }
+
+            &.active {
+                background-color: rgba(0, 0, 0, .1) !important;
+                border-left: 2px solid $primary !important;
+
+                @media screen and (min-width: map-get($container-max-widths, 'lg')) {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}

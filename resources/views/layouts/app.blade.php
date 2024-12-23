@@ -74,7 +74,7 @@
             }
         }).then((Delete) => {
             if (Delete) {
-                window.location = "{{ route('logout') }}"
+                window.location = "{{ route('auth.logout') }}"
             } else {
                 swal.close();
             }

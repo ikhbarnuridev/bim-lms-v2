@@ -43,13 +43,13 @@
                             {{ __('My Home') }}
                         </a>
 
-                        <a class="dropdown-item" href="{{ route('profile') }}">
+                        <a class="dropdown-item" href="{{ route('my-account.profile') }}">
                             <x-heroicon-o-user class="pb-1" width="24" height="24"/>
                             {{ __('Profile') }}
                         </a>
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}">
+                        <a class="dropdown-item" href="{{ route('auth.logout') }}">
                             <x-heroicon-o-arrow-left-end-on-rectangle class="pb-1" width="24" height="24"/>
                             {{ __('Logout') }}
                         </a>
@@ -122,13 +122,13 @@
                                     {{ __('My Home') }}
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                <a class="dropdown-item" href="{{ route('my-account.profile') }}">
                                     <x-heroicon-o-user class="pb-1" width="24" height="24"/>
                                     {{ __('Profile') }}
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}">
+                                <a class="dropdown-item" href="{{ route('auth.logout') }}">
                                     <x-heroicon-o-arrow-left-end-on-rectangle class="pb-1" width="24" height="24"/>
                                     {{ __('Logout') }}
                                 </a>
@@ -137,7 +137,7 @@
 
                         <li class="nav-item d-lg-none">
                             <a class="nav-link p-3 {{ request()->is('auth/login') ? 'active' : '' }}"
-                               href="{{ route('login') }}">
+                               href="{{ route('auth.login') }}">
                                 <x-heroicon-o-home class="me-2" height="24" width="24"/>
                                 {{ __('My Home') }}
                             </a>
@@ -145,7 +145,7 @@
                     @else
                         <li class="nav-item">
                             <a class="nav-link p-3 {{ request()->is('auth/login') ? 'active' : '' }}"
-                               href="{{ route('login') }}">
+                               href="{{ route('auth.login') }}">
                                 <x-heroicon-m-arrow-right-start-on-rectangle class="me-2" height="24" width="24"/>
                                 Login
                             </a>

@@ -28,6 +28,7 @@
             align-items: center;
             border-radius: 0 !important;
             color: $white;
+            border-left: 2px solid transparent;
 
             &:hover {
                 background-color: rgb(255, 255, 255, .2);
