@@ -14,6 +14,6 @@ class Authenticate extends Middleware
     {
         session()->flash('error', __('You must log in first'));
 
-        return $request->expectsJson() ? null : route('login');
+        return $request->expectsJson() ? null : route('auth.login');
     }
 }

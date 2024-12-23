@@ -16,7 +16,7 @@
                                     <x-alert.danger message="{{ session()->get('error') }}" />
                                 @endif
 
-                                <form action="{{ route('login.submit') }}" method="post">
+                                <form action="{{ route('auth.login.submit') }}" method="post">
                                     @csrf
 
                                     <div class="mb-3">
