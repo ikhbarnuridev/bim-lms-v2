@@ -27,7 +27,13 @@
     }
 
     .sidebar.show {
-        width: 100%;
+        width: $offcanvas-horizontal-width;
+    }
+
+    @media screen and (max-width: map-get($container-max-widths, 'sm')) {
+        .sidebar.show {
+            width: 100%;
+        }
     }
 
     .header > .container-fluid,
