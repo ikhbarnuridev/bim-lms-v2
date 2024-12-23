@@ -49,27 +49,61 @@
                                                 >
                                                 <div class="d-flex flex-column">
                                                     <span>{{ $user->name }}</span>
-                                                    <span class="small text-secondary">{{ $user->getRolenames()[0] }}</span>
+                                                    <span
+                                                        class="small text-secondary">{{ $user->getRolenames()[0] }}</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="text-nowrap text-end">
                                             <div class="d-flex justify-content-end gap-2">
-                                                <a href="#"
-                                                   class="text-decoration-none fw-semibold text-secondary d-flex align-items-center gap-1">
-                                                    <x-heroicon-s-eye height="16" width="16"/>
-                                                    Lihat
+                                                <a href="{{ route('impersonate', $user->id) }}"
+                                                   class="text-decoration-none fw-semibold text-primary d-flex align-items-center gap-1">
+                                                    <x-heroicon-o-user height="20" width="20"/>
+                                                    Cek Akun
                                                 </a>
-                                                <a href="#"
-                                                   class="text-decoration-none fw-semibold text-info d-flex align-items-center gap-1">
-                                                    <x-heroicon-s-pencil-square height="16" width="16"/>
-                                                    Ubah
-                                                </a>
-                                                <a href="#"
-                                                   class="text-decoration-none fw-semibold text-danger d-flex align-items-center gap-1">
-                                                    <x-heroicon-s-trash height="16" width="16"/>
-                                                    Hapus
-                                                </a>
+
+                                                <div class="dropdown d-flex">
+                                                    <a class="text-decoration-none fw-bold text-primary d-flex align-items-center gap-1"
+                                                       href="#"
+                                                       role="button"
+                                                       data-coreui-toggle="dropdown" aria-expanded="false"
+                                                    >
+                                                        <x-heroicon-c-ellipsis-vertical
+                                                            style="height: 20px;width: 20px"/>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu mt-2"
+                                                        style="font-size: 14px; min-width: 200px">
+                                                        <li>
+                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item"
+                                                               href="{{ route('user.edit', $user->id) }}"
+                                                            >
+                                                                <x-heroicon-m-eye
+                                                                    style="height: 20px;width: 20px"/>
+                                                                Lihat
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item"
+                                                               href="{{ route('user.edit', $user->id) }}"
+                                                            >
+                                                                <x-heroicon-m-pencil-square
+                                                                    style="height: 20px;width: 20px"/>
+                                                                Ubah
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a class="text-decoration-none fw-bold text-danger d-flex align-items-center gap-2 dropdown-item"
+                                                               href="#"
+                                                            >
+                                                                <x-heroicon-m-trash style="height: 20px;width: 20px"/>
+                                                                Hapus
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
