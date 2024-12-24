@@ -1,10 +1,10 @@
 <section class="my-account">
-    <div class="row row-gap-32">
+    <div class="row row-gap-24">
         <div class="col-12">
             <x-section.app.page-title title="{{ __('My Account') }}"/>
         </div>
         <div class="col-12">
-            <div class="row row-gap-32">
+            <div class="row row-gap-24">
                 <div class="col-12 col-lg-3">
                     <ul class="sidebar-nav">
                         <li class="nav-item">

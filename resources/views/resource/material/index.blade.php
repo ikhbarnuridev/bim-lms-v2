@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="card-body px-0">
-                    <div class="row row-gap-4">
+                    <div class="row row-gap-48">
                         @if(!empty($materials) && $materials->count() > 0)
                             @foreach($materials as $index => $material)
                                 <div class="col-12 col-md-4 col-xl-3">
