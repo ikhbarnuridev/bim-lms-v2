@@ -61,7 +61,7 @@
                                                     Lihat
                                                 </a>
                                                 <a href="#"
-                                                   class="text-decoration-none fw-semibold text-info d-flex align-items-center gap-1">
+                                                   class="text-decoration-none fw-semibold text-secondary d-flex align-items-center gap-1">
                                                     <x-heroicon-s-pencil-square height="16" width="16"/>
                                                     Ubah
                                                 </a>
