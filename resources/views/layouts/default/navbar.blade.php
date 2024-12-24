@@ -117,19 +117,19 @@
                                     <div class="fw-semibold">Pengaturan</div>
                                 </div>
 
-                                <a class="dropdown-item" href="{{ route('my-home') }}">
-                                    <x-heroicon-o-home class="pb-1" height="24" width="24"/>
+                                <a class="dropdown-item small" href="{{ route('my-home') }}">
+                                    <x-heroicon-o-home class="pb-1" height="22" width="22"/>
                                     {{ __('My Home') }}
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('my-account.profile') }}">
-                                    <x-heroicon-o-user class="pb-1" width="24" height="24"/>
+                                <a class="dropdown-item small" href="{{ route('my-account.profile') }}">
+                                    <x-heroicon-o-user class="pb-1" width="22" height="22"/>
                                     {{ __('Profile') }}
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('auth.logout') }}">
-                                    <x-heroicon-o-arrow-left-end-on-rectangle class="pb-1" width="24" height="24"/>
+                                <a class="dropdown-item small" href="{{ route('auth.logout') }}">
+                                    <x-heroicon-o-arrow-left-end-on-rectangle class="pb-1" width="22" height="22"/>
                                     {{ __('Logout') }}
                                 </a>
                             </div>
