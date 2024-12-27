@@ -33,8 +33,6 @@
     </main>
 </div>
 
-@yield('modals')
-
 <x-section.impersonate/>
 
 {{-- jQuery --}}
@@ -95,28 +93,25 @@
 
         @if(Session::has('error'))
         new Swal({
-            title: "Terjadi kesalahan!",
-            text: "{{ session('error') }}",
-            icon: "error",
-            showCancelButton: true,
+            toast: true,
+            width: "auto",
+            position: "top-end",
             showConfirmButton: false,
-            cancelButtonText: "Tutup",
-            buttonsStyling: false,
-            customClass: {
-                cancelButton: "btn btn-secondary"
-            }
-        }).then(function () {
-            swal.close();
-            @if(isset(session('error')['onClose']))
-                {!! session('error')['onClose'] !!}();
-            @endif
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            },
+            title: "{{ session('error') }}",
+            icon: "error",
         });
         @endif
     });
 </script>
 
-{{-- Page Specific Scripts --}}
-@stack('scripts')
+{{-- Page Specific Script --}}
+@stack('script')
 
 </body>
 </html>

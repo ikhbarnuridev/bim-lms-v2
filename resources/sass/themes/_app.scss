@@ -105,8 +105,14 @@
         min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
     }
 
-    .swal2-container.swal2-top-end {
-        margin-top: 84px;
+    .swal2-container {
+        &.swal2-top-end {
+            margin-top: 66px;
+        }
+
+        @media screen and (max-width: map-get($container-max-widths, 'sm')) {
+            width: 100% !important;
+        }
     }
 
     @if $enable-dark-mode {
