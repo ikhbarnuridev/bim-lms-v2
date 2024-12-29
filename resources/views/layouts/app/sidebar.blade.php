@@ -75,41 +75,12 @@
         @endif
 
         @if(auth()->user()->isTeacher())
-            <li class="nav-title">Master Data</li>
-
             <li class="nav-item">
                 <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
                    href="{{ route('material.index') }}"
                 >
                     <x-heroicon-o-book-open class="me-2" height="24" width="24"/>
                     {{ __('Material') }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link py-3 @if(request()->is('teacher/*')) active @endif"
-                   href="{{ route('teacher.index') }}"
-                >
-                    <x-heroicon-o-users class="me-2" height="24" width="24"/>
-                    {{ __('Teacher') }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link py-3 @if(request()->is('student/*')) active @endif"
-                   href="{{ route('student.index') }}"
-                >
-                    <x-heroicon-o-users class="me-2" height="24" width="24"/>
-                    {{ __('Student') }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link py-3 @if(request()->is('user/*')) active @endif"
-                   href="{{ route('user.index') }}"
-                >
-                    <x-heroicon-o-users class="me-2" height="24" width="24"/>
-                    {{ __('User') }}
                 </a>
             </li>
         @endif

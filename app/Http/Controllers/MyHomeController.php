@@ -6,7 +6,9 @@ class MyHomeController extends Controller
 {
     public function __invoke()
     {
-        return view('my-home', [
+        $role = auth()->user()->getRoleNames()[0];
+
+        return view('my-home.' . $role, [
             'title' => __('Home'),
         ]);
     }
