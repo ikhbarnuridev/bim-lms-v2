@@ -55,6 +55,16 @@ class User extends Authenticatable
         return $this->hasRole('admin');
     }
 
+    public function isTeacher(): bool
+    {
+        return $this->hasRole('teacher');
+    }
+
+    public function isStudent(): bool
+    {
+        return $this->hasRole('student');
+    }
+
     public function student(): HasOne
     {
         return $this->hasOne(Student::class);

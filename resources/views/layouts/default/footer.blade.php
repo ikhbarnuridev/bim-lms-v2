@@ -38,6 +38,14 @@
                                             FAQ
                                         </a>
                                     </li>
+
+                                    @if(!auth()->user())
+                                        <li class="nav-item mb-lg-3">
+                                            <a class="text-decoration-none text-light" href="{{ route('auth.login') }}">
+                                                Login
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
