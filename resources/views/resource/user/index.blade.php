@@ -64,40 +64,6 @@
                                                     <x-heroicon-o-user height="20" width="20"/>
                                                     Cek Akun
                                                 </a>
-
-                                                <div class="dropdown d-flex">
-                                                    <a class="text-decoration-none fw-bold text-primary d-flex align-items-center gap-1"
-                                                       href="#"
-                                                       role="button"
-                                                       data-coreui-toggle="dropdown" aria-expanded="false"
-                                                    >
-                                                        <x-heroicon-c-ellipsis-vertical
-                                                            style="height: 20px;width: 20px"/>
-                                                    </a>
-
-                                                    <ul class="dropdown-menu mt-2"
-                                                        style="font-size: 14px; min-width: 200px">
-
-                                                        <li>
-                                                            <a class="text-decoration-none fw-bold d-flex align-items-center gap-2 dropdown-item text-secondary"
-                                                               href="{{ route('user.edit', $user->id) }}"
-                                                            >
-                                                                <x-heroicon-m-pencil-square
-                                                                    style="height: 20px;width: 20px"/>
-                                                                Ubah
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a class="text-decoration-none fw-bold text-danger d-flex align-items-center gap-2 dropdown-item"
-                                                               href="#"
-                                                            >
-                                                                <x-heroicon-m-trash style="height: 20px;width: 20px"/>
-                                                                Hapus
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </td>
                                     </tr>

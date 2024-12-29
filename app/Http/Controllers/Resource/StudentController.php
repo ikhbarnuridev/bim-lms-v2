@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\CreateRequest;
 use App\Http\Requests\Student\EditRequest;
 use App\Models\Student;
-use Database\Factories\UserFactory;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -22,8 +22,8 @@ class StudentController extends Controller
 
         if ($search) {
             $query->where(function ($q) use ($search) {
-                $q->whereRelation('user', 'name', 'like', '%' . $search . '%')
-                    ->orWhere('nis', 'like', '%' . $search . '%');
+                $q->whereRelation('user', 'name', 'like', '%'.$search.'%')
+                    ->orWhere('nis', 'like', '%'.$search.'%');
             });
         }
 
@@ -43,7 +43,7 @@ class StudentController extends Controller
 
             $validatedData = $request->validated();
 
-            $user = UserFactory::new()->create([
+            $user = User::create([
                 'name' => $validatedData['name'],
                 'username' => $validatedData['nis'],
                 'password' => Hash::make($validatedData['nis']),
@@ -92,6 +92,8 @@ class StudentController extends Controller
     public function update(EditRequest $request, Student $student)
     {
         try {
+            DB::beginTransaction();
+
             $validatedData = $request->validated();
 
             $student->update([
@@ -100,13 +102,19 @@ class StudentController extends Controller
 
             $student->user()->update([
                 'name' => $validatedData['name'],
+                'username' => $validatedData['nis'],
+                'password' => Hash::make($validatedData['nis']),
             ]);
+
+            DB::commit();
 
             session()->flash('success', __('Student successfully updated'));
 
             return redirect()->back();
         } catch (Exception $exception) {
             Log::error($exception->getMessage());
+
+            DB::rollBack();
 
             session()->flash('error', __('Failed to update student'));
 

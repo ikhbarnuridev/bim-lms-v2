@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Student;
+namespace App\Http\Requests\Teacher;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -24,7 +24,9 @@ class EditRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'nis' => ['required', 'string', 'unique:students,nis,'.$this->student->id],
+            'username' => ['required', 'string', 'unique:users,username,'.$this->user->id],
+            'password' => ['nullable', 'string', 'max:255', 'confirmed'],
+            'password_confirmation' => ['nullable', 'string', 'max:255'],
         ];
     }
 
@@ -43,7 +45,7 @@ class EditRequest extends FormRequest
         ';
 
         session()->flash('script', $script);
-        session()->flash('student', $this->student);
+        session()->flash('teacher', $this->user);
 
         parent::failedValidation($validator);
     }

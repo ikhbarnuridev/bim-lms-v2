@@ -8,7 +8,7 @@ class MyHomeController extends Controller
     {
         $role = auth()->user()->getRoleNames()[0];
 
-        return view('my-home.' . $role, [
+        return view('my-home.'.$role, [
             'title' => __('Home'),
         ]);
     }

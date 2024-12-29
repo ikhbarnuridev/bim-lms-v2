@@ -52,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', MyHomeController::class)->name('my-home');
     Route::get('/user-guide', UserGuideController::class)->name('user-guide');
 
-    Route::resource('teacher', TeacherController::class);
+    Route::resource('teacher', TeacherController::class)->parameters(['teacher' => 'user']);
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
     Route::resource('user', UserController::class);

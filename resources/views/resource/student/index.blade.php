@@ -68,6 +68,12 @@
                                         </td>
                                         <td class="text-nowrap text-end">
                                             <div class="d-flex justify-content-end gap-2">
+                                                <a href="{{ route('impersonate', $student->user->id) }}"
+                                                   class="text-decoration-none fw-semibold text-primary d-flex align-items-center gap-1">
+                                                    <x-heroicon-o-user height="20" width="20"/>
+                                                    Cek Akun
+                                                </a>
+
                                                 <div class="dropdown d-flex">
                                                     <a class="text-decoration-none fw-bold text-primary d-flex align-items-center gap-1"
                                                        href="#"
@@ -207,13 +213,13 @@
 
                         <div class="modal-body py-0">
                             <div class="mb-3">
-                                <label for="name" class="form-label required">
+                                <label for="edit_name" class="form-label required">
                                     {{ __('Full Name') }}
                                 </label>
                                 <input
                                     type="text"
                                     class="form-control {{ $errors->first('name') != null ? 'is-invalid' : '' }}"
-                                    id="name"
+                                    id="edit_name"
                                     name="name"
                                     value="{{ old('name') ?? $student->user->name }}"
                                     maxlength="255"
@@ -224,13 +230,22 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="nis" class="form-label required">
+                                <label for="edit_nis" class="form-label required">
                                     {{ __('NIS') }}
                                 </label>
+                                <div class="alert alert-info d-flex mb-2" role="alert">
+                                    <div>
+                                        <x-heroicon-o-information-circle class="me-3" height="24" width="24"/>
+                                    </div>
+                                    <div>
+                                        <b>NIS</b> akan digunakan sebagai <b>Username</b> dan <b>Password</b> pada akun
+                                        peserta didik
+                                    </div>
+                                </div>
                                 <input
                                     type="text"
                                     class="form-control {{ $errors->first('nis') != null ? 'is-invalid' : '' }}"
-                                    id="nis"
+                                    id="edit_nis"
                                     name="nis"
                                     value="{{ old('nis') ?? $student->nis }}"
                                     maxlength="9"
