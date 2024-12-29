@@ -29,7 +29,7 @@
 <x-section.impersonate/>
 
 {{-- Page Specific Scripts --}}
-@stack('scripts')
+@stack('script')
 
 </body>
 </html>

@@ -13,8 +13,10 @@ use App\Http\Controllers\MyHomeController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Resource\MaterialController;
 use App\Http\Controllers\Resource\StudentController;
+use App\Http\Controllers\Resource\TeacherController;
 use App\Http\Controllers\Resource\UserController;
 use App\Http\Controllers\TermOfServiceController;
+use App\Http\Controllers\UserGuideController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +50,9 @@ Route::prefix('auth')->name('auth.')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', MyHomeController::class)->name('my-home');
+    Route::get('/user-guide', UserGuideController::class)->name('user-guide');
 
+    Route::resource('teacher', TeacherController::class);
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
     Route::resource('user', UserController::class);

@@ -237,5 +237,20 @@
     "My Account": "Akun Saya",
     "User List": "Daftar Pengguna",
     "Full Name": "Nama Lengkap",
-    "Photo": "Foto"
+    "Photo": "Foto",
+    "To Front Page": "Ke Halaman Depan",
+    "Add User": "Tambah Pengguna",
+    "Edit User": "Ubah Pengguna",
+    "New Password": "Password Baru",
+    "Confirm Password": "Konfirmasi Password",
+    "Teacher": "Guru",
+    "Teacher List": "Daftar Guru",
+    "Add Student": "Tambah Peserta Didik",
+    "Edit Student": "Ubah Peserta Didik",
+    "Student successfully added": "Peserta didik berhasil ditambahkan",
+    "Student successfully updated": "Peserta didik berhasil diperbarui",
+    "Student successfully deleted": "Peserta didik berhasil dihapus",
+    "Failed to add student": "Peserta didik berhasil dihapus",
+    "Failed to update student": "Peserta didik berhasil dihapus",
+    "Failed to delete student": "Peserta didik berhasil dihapus"
 }

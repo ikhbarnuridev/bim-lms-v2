@@ -52,18 +52,18 @@
 
                         <div class="col-12 col-lg-4">
                             <div class="mb-3">
-                                <label for="password" class="form-label required">
+                                <label for="confirm_password" class="form-label required">
                                     {{ __('Confirm Password') }}
                                 </label>
                                 <input
                                     type="password"
-                                    class="form-control {{ $errors->first('password') != null ? 'is-invalid' : '' }}"
-                                    id="password"
-                                    name="password"
-                                    value="{{ old('password') }}"
+                                    class="form-control {{ $errors->first('confirm_password') != null ? 'is-invalid' : '' }}"
+                                    id="confirm_password"
+                                    name="confirm_password"
+                                    value="{{ old('confirm_password') }}"
                                 >
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('password') }}
+                                    {{ $errors->first('confirm_password') }}
                                 </div>
                             </div>
                         </div>
