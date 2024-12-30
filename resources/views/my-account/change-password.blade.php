@@ -12,27 +12,10 @@
 
                 <form action="{{ route('my-account.change-password.update') }}" method="post">
                     @csrf
+                    @method('put')
 
                     <div class="row">
-                        <div class="col-12 col-lg-4">
-                            <div class="mb-3">
-                                <label for="username" class="form-label required">
-                                    {{ __('Password') }}
-                                </label>
-                                <input
-                                    type="text"
-                                    class="form-control {{ $errors->first('username') != null ? 'is-invalid' : '' }}"
-                                    id="username"
-                                    name="username"
-                                    value="{{ old('username') }}"
-                                >
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('username') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-6">
                             <div class="mb-3">
                                 <label for="password" class="form-label required">
                                     {{ __('New Password') }}
@@ -50,20 +33,20 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-6">
                             <div class="mb-3">
-                                <label for="confirm_password" class="form-label required">
-                                    {{ __('Confirm Password') }}
+                                <label for="password_confirmation" class="form-label required">
+                                    {{ __('Password Confirmation') }}
                                 </label>
                                 <input
                                     type="password"
-                                    class="form-control {{ $errors->first('confirm_password') != null ? 'is-invalid' : '' }}"
-                                    id="confirm_password"
-                                    name="confirm_password"
-                                    value="{{ old('confirm_password') }}"
+                                    class="form-control {{ $errors->first('password_confirmation') != null ? 'is-invalid' : '' }}"
+                                    id="password_confirmation"
+                                    name="password_confirmation"
+                                    value="{{ old('password_confirmation') }}"
                                 >
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('confirm_password') }}
+                                    {{ $errors->first('password_confirmation') }}
                                 </div>
                             </div>
                         </div>

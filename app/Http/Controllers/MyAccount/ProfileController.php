@@ -13,8 +13,12 @@ class ProfileController extends Controller
 {
     public function __invoke()
     {
-        return view('my-account.profile', [
+        $user = auth()->user();
+        $role = $user->getRoleNames()[0];
+
+        return view('my-account.profile.'.$role, [
             'title' => __('Profile'),
+            'user' => $user,
         ]);
     }
 
@@ -31,7 +35,7 @@ class ProfileController extends Controller
                     File::delete(public_path('storage/'.$user->photo));
                 }
 
-                $validatedData['photo'] = $validatedData['photo']->store('photos', 'public');
+                $validatedData['photo'] = $validatedData['photo']->store('user/photo', 'public');
             } else {
                 $validatedData['photo'] = $user->photo;
             }
@@ -48,7 +52,7 @@ class ProfileController extends Controller
 
             DB::rollBack();
 
-            session()->flash('error', __('Profile update failed'));
+            session()->flash('error', __('Failed to update profile'));
 
             return redirect()->back()->withInput();
         }

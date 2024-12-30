@@ -220,7 +220,7 @@
     "Yes": "Ya",
     "You are receiving this email because we received a password reset request for your account.": "Anda menerima surel ini karena kami menerima permintan pengaturan ulang password untuk akun anda.",
     "Remember me": "Ingat saya",
-    "Incorrect email or password": "Email atau password salah",
+    "Incorrect username or password": "Username atau password salah",
     "My Home": "Beranda Saya",
     "Student": "Peserta Didik",
     "Material": "Materi",
@@ -260,5 +260,10 @@
     "Teacher successfully deleted": "Guru berhasil dihapus",
     "Failed to add teacher": "Guru gagal ditambahkan",
     "Failed to update teacher": "Guru gagal diperbarui",
-    "Failed to delete teacher": "Guru gagal dihapus"
+    "Failed to delete teacher": "Guru gagal dihapus",
+    "Profile": "Profil",
+    "Profile successfully updated": "Profil berhasil diperbarui",
+    "Failed to update profile": "Profil gagal diperbarui",
+    "Password successfully updated": "Password berhasil diperbarui",
+    "Failed to update password": "Password gagal diperbarui"
 }

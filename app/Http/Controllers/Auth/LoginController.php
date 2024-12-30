@@ -30,7 +30,7 @@ class LoginController extends Controller
             return redirect()->route('my-home');
         }
 
-        session()->flash('error', __('Incorrect email or password'));
+        session()->flash('error', __('Incorrect username or password'));
 
         return redirect()->back()->withInput();
     }

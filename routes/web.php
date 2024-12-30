@@ -59,10 +59,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('my-account')->name('my-account.')->group(function () {
         Route::get('/profile', ProfileController::class)->name('profile');
-        Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
         Route::get('/change-password', ChangePasswordController::class)->name('change-password');
-        Route::post('/change-password', [ChangePasswordController::class, 'update'])->name('change-password.update');
+        Route::put('/change-password', [ChangePasswordController::class, 'update'])->name('change-password.update');
     });
 });
 

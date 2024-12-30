@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Profile;
+namespace App\Http\Requests\ChangePassword;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,16 +22,16 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'max:255'],
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => __('Full Name'),
-            'photo' => __('Photo'),
+            'password' => __('New Password'),
+            'password_confirmation' => __('Password Confirmation'),
         ];
     }
 }

@@ -9,8 +9,9 @@
                     Kelola data diri Anda untuk komunikasi dan personalisasi sistem.
                 </p>
 
-                <form action="{{ route('my-account.change-password.update') }}" method="post">
+                <form action="{{ route('my-account.profile.update') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
 
                     <div class="row">
                         <div class="col-12">
@@ -19,25 +20,24 @@
                                     {{ __('Full Name') }}
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inputPassword">
+                                    <input
+                                        type="text"
+                                        class="form-control {{ $errors->first('name') != null ? 'is-invalid' : '' }}"
+                                        id="name"
+                                        name="name"
+                                        value="{{ old('name') ?? $user->name }}"
+                                        maxlength="255"
+                                    >
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('name') }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="mb-3 row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label">
-                                    {{ __('NIS ') }}
-                                </label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inputPassword">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="mb-3 row">
-                                <label for="inputPassword" class="col-sm-3 col-form-label">
+                                <label for="photo" class="col-sm-3 col-form-label">
                                     {{ __('Photo') }}
                                 </label>
                                 <div class="col-sm-6">
@@ -46,7 +46,19 @@
                                              src="{{ auth()->user()->getPhotoUrl() }}"
                                              alt="{{ auth()->user()->name }}"
                                         >
-                                        <input type="file" class="form-control" id="inputPassword">
+                                        <div>
+                                            <input
+                                                type="file"
+                                                class="form-control {{ $errors->first('photo') != null ? 'is-invalid' : '' }}"
+                                                id="photo"
+                                                name="photo"
+                                                value="{{ old('photo') ?? $user->photo }}"
+                                                maxlength="255"
+                                            >
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('photo') }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

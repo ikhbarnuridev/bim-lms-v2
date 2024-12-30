@@ -25,7 +25,7 @@ class EditRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'unique:users,username,'.$this->user->id],
-            'password' => ['nullable', 'string', 'max:255', 'confirmed'],
+            'password' => ['nullable', 'string', 'min:8', 'max:255', 'confirmed'],
             'password_confirmation' => ['nullable', 'string', 'max:255'],
         ];
     }
