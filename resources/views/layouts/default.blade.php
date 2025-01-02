@@ -18,7 +18,7 @@
         rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body id="default">
+<body id="default" class="bg-body-tertiary\">
 
 @include('layouts.default.navbar')
 
