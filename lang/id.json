@@ -265,5 +265,6 @@
     "Profile successfully updated": "Profil berhasil diperbarui",
     "Failed to update profile": "Profil gagal diperbarui",
     "Password successfully updated": "Password berhasil diperbarui",
-    "Failed to update password": "Password gagal diperbarui"
+    "Failed to update password": "Password gagal diperbarui",
+    "Course List": "Daftar Materi"
 }

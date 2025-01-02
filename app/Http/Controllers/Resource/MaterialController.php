@@ -10,11 +10,20 @@ class MaterialController extends Controller
 {
     public function index()
     {
+        $search = request()->input('s');
+
+        $query = Material::query();
+
+        if ($search) {
+            $query->where('title', 'like', '%'.$search.'%');
+        }
+
         return view('resource.material.index', [
-            'title' => __('Material List'),
-            'materials' => Material::query()
-                ->latest()
-                ->paginate(10),
+            'title' => __('Course List'),
+            'search' => $search,
+            'materials' => $query->latest()
+                ->paginate(10)
+                ->appends(request()->query()),
         ]);
     }
 
