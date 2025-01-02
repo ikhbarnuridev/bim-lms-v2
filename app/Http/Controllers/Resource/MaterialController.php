@@ -15,7 +15,7 @@ class MaterialController extends Controller
         $query = Material::query();
 
         if ($search) {
-            $query->where('title', 'like', '%' . $search . '%');
+            $query->where('title', 'like', '%'.$search.'%');
         }
 
         return view('resource.material.index', [
