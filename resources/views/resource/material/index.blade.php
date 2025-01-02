@@ -12,15 +12,15 @@
                         <a href="{{ route('material.create') }}"
                            class="btn btn-primary"
                         >
-                            Tambah
+                            {{ __('Add') }}
                         </a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-12">
-            <div class="card border-0">
-                <div class="card-header border-0 px-0">
+            <div class="card border-0 bg-transparent">
+                <div class="card-header border-0 px-0 bg-transparent">
                     <div class="d-flex justify-content-end">
                         <div class="w-100">
                             <form action="{{ url()->current() }}" method="get">
@@ -39,8 +39,8 @@
                     <div class="row row-gap-48">
                         @if(!empty($materials) && $materials->count() > 0)
                             @foreach($materials as $index => $material)
-                                <div class="col-12 col-md-4 col-xl-3">
-                                    <a href="#" class="text-decoration-none">
+                                    <div class="col-12 col-md-4 col-xl-4 col-xxl-3">
+                                    <a href="{{ route('material.show', $material) }}" class="text-decoration-none">
                                         <x-material.card :material="$material"/>
                                     </a>
                                 </div>
@@ -52,7 +52,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer bg-transparent">
                     {{ $materials->links() }}
                 </div>
             </div>

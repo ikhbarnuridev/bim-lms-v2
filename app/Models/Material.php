@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Wildside\Userstamps\Userstamps;
 
 class Material extends Model
@@ -25,5 +26,10 @@ class Material extends Model
     public function materialStatuses(): HasMany
     {
         return $this->hasMany(MaterialStatus::class);
+    }
+
+    public function getCoverUrl(): ?string
+    {
+        return $this->photo ? Storage::url($this->cover) : asset('assets/images/book-cover.png');
     }
 }

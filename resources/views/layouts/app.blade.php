@@ -19,7 +19,7 @@
         rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body id="app">
+<body id="app" class="bg-body-tertiary">
 
 @include('layouts.app.sidebar')
 

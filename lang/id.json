@@ -50,7 +50,7 @@
     "Down": "Turun",
     "Duplicate": "Duplikat",
     "Duplicate :name": "Duplikat: nama",
-    "Edit": "Sunting",
+    "Edit": "Ubah",
     "Edit :name": "Sunting :name",
     "Enable": "Nyalakan",
     "errors": "kesalahan",
@@ -266,5 +266,8 @@
     "Failed to update profile": "Profil gagal diperbarui",
     "Password successfully updated": "Password berhasil diperbarui",
     "Failed to update password": "Password gagal diperbarui",
-    "Course List": "Daftar Materi"
+    "View Material": "Lihat Materi",
+    "Back": "Kembali",
+    "Create Material": "Buat Materi",
+    "Add Material": "Tambah Materi"
 }

@@ -6,13 +6,18 @@
     }
 }
 
-.btn-primary {
+.btn-primary,
+.btn-success {
     color: $white;
 
     &:hover,
     &:active:focus {
         color: $white;
     }
+}
+
+.btn-light {
+    background-color: $white;
 }
 
 .fab {

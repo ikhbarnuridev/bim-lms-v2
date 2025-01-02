@@ -15,11 +15,11 @@ class MaterialController extends Controller
         $query = Material::query();
 
         if ($search) {
-            $query->where('title', 'like', '%'.$search.'%');
+            $query->where('title', 'like', '%' . $search . '%');
         }
 
         return view('resource.material.index', [
-            'title' => __('Course List'),
+            'title' => __('Material List'),
             'search' => $search,
             'materials' => $query->latest()
                 ->paginate(10)
@@ -29,7 +29,9 @@ class MaterialController extends Controller
 
     public function create()
     {
-        //
+        return view('resource.material.create', [
+            'title' => __('Add Material'),
+        ]);
     }
 
     public function store(Request $request)
@@ -37,22 +39,25 @@ class MaterialController extends Controller
         //
     }
 
-    public function show(string $id)
+    public function show(Material $material)
+    {
+        return view('resource.material.show', [
+            'title' => __('View Material'),
+            'material' => $material,
+        ]);
+    }
+
+    public function edit(Material $material)
     {
         //
     }
 
-    public function edit(string $id)
+    public function update(Request $request, Material $material)
     {
         //
     }
 
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    public function destroy(string $id)
+    public function destroy(Material $material)
     {
         //
     }

@@ -20,7 +20,7 @@ class MaterialFactory extends Factory
         return [
             'title' => $this->faker->title(),
             'slug' => $this->faker->slug(),
-            'content' => $this->faker->paragraph(),
+            'description' => $this->faker->paragraph(),
             'order' => (new MaterialService)->getNextOrder(),
             'chapter_id' => ChapterFactory::new()->create(),
         ];
