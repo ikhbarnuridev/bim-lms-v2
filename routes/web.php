@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyAccount\ChangePasswordController;
 use App\Http\Controllers\MyAccount\ProfileController;
 use App\Http\Controllers\MyHomeController;
+use App\Http\Controllers\MyMaterialController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\Resource\MaterialController;
 use App\Http\Controllers\Resource\StudentController;
@@ -56,6 +57,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
     Route::resource('user', UserController::class);
+
+    Route::get('my-material/list', [MyMaterialController::class, 'list'])->name('my-material.list');
+    Route::get('my-material/{material}/detail', [MyMaterialController::class, 'detail'])->name('my-material.detail');
 
     Route::prefix('my-account')->name('my-account.')->group(function () {
         Route::get('/profile', ProfileController::class)->name('profile');

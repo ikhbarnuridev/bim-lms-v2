@@ -32,4 +32,12 @@ class Material extends Model
     {
         return $this->photo ? Storage::url($this->cover) : asset('assets/images/book-cover.png');
     }
+
+    public function isDone()
+    {
+        return $this->materialStatuses()
+            ->where('student_id', auth()->id())
+            ->first()
+            ->is_done;
+    }
 }

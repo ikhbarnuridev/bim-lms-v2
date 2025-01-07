@@ -9,12 +9,6 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="d-flex justify-content-lg-end gap-2 flex-wrap">
-                        <a href="{{ route('material.create') }}"
-                           class="btn btn-primary"
-                        >
-                            <x-heroicon-o-plus height="20" width="20"/>
-                            {{ __('Add') }}
-                        </a>
                     </div>
                 </div>
             </div>
@@ -41,7 +35,7 @@
                         @if(!empty($materials) && $materials->count() > 0)
                             @foreach($materials as $index => $material)
                                 <div class="col-12 col-md-4 col-xl-4 col-xxl-3">
-                                    <a href="{{ route('material.show', $material) }}" class="text-decoration-none">
+                                    <a href="{{ route('my-material.detail', $material) }}" class="text-decoration-none">
                                         <x-material.card :material="$material"/>
                                     </a>
                                 </div>

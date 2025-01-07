@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Teacher;
+namespace App\Http\Requests\Student;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,14 @@ class EditRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'unique:users,username,'.$this->user->id],
-            'password' => ['nullable', 'string', 'min:8', 'max:255', 'confirmed'],
-            'password_confirmation' => ['nullable', 'string', 'max:255'],
+            'nis' => ['required', 'string', 'unique:students,nis'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => __('Full Name'),
         ];
     }
 
@@ -35,7 +40,7 @@ class EditRequest extends FormRequest
         $script = '
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const modalElement = document.getElementById("editModal");
+                const modalElement = document.getElementById("createModal");
                 modalElement.classList.remove("fade");
                 const modal = new coreui.Modal(modalElement);
                 modal.show();
@@ -45,7 +50,6 @@ class EditRequest extends FormRequest
         ';
 
         session()->flash('script', $script);
-        session()->flash('teacher', $this->user);
 
         parent::failedValidation($validator);
     }

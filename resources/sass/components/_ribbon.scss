@@ -1,0 +1,122 @@
+.ribbon {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 93px;
+    height: 93px;
+    text-align: right;
+}
+
+.ribbon span {
+    font-size: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    line-height: 32px;
+    transform: rotate(45deg);
+    width: 125px;
+    display: block;
+    background: $success;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 17px; // change this, if no border
+    right: -29px; // change this, if no border
+}
+
+.ribbon span::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid $success;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid $success;
+}
+
+.ribbon span::after {
+    content: '';
+    position: absolute;
+    right: 0%;
+    top: 100%;
+    z-index: -1;
+    border-right: 3px solid $success;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid $success;
+}
+
+.danger span {
+    background: $danger;
+}
+
+.danger span::before {
+    border-left-color: $danger;
+    border-top-color: $danger;
+}
+
+.danger span::after {
+    border-right-color: $danger;
+    border-top-color: $danger;
+}
+
+.primary span {
+    background: $primary;
+}
+
+.primary span::before {
+    border-left-color: $primary;
+    border-top-color: $primary;
+}
+
+.primary span::after {
+    border-right-color: $primary;
+    border-top-color: $primary;
+}
+
+.info span {
+    background: $info;
+}
+
+.info span::before {
+    border-left-color: $info;
+    border-top-color: $info;
+}
+
+.info span::after {
+    border-right-color: $info;
+    border-top-color: $info;
+}
+
+.secondary span {
+    background: $warning;
+}
+
+.warning span::before {
+    border-left-color: $warning;
+    border-top-color: $warning;
+}
+
+.warning span::after {
+    border-right-color: $warning;
+    border-top-color: $warning;
+}
+
+.secondary span {
+    background: $secondary;
+}
+
+.secondary span::before {
+    background: $success;
+    border-left-color: $secondary;
+    border-top-color: $secondary;
+}
+
+.secondary span::after {
+    border-right-color: $secondary;
+    border-top-color: $secondary;
+}

@@ -105,13 +105,44 @@
         min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
     }
 
+    .swal2-modal {
+        width: 448px;
+    }
+
     .swal2-container {
         &.swal2-top-end {
             margin-top: 66px;
         }
 
+        .swal2-icon {
+            margin-top: 20px;
+        }
+
+        .swal2-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .swal2-html-container {
+            font-size: 14px;
+        }
+
         @media screen and (max-width: map-get($container-max-widths, 'sm')) {
             width: 100% !important;
+        }
+    }
+
+    .swal2-toast {
+        display: flex !important;
+        align-items: center;
+
+        .swal2-icon {
+            margin-top: 0;
+        }
+
+        & > .swal2-title {
+            font-size: 14px;
+            font-weight: 600;
         }
     }
 

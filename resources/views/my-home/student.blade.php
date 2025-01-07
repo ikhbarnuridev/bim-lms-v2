@@ -18,5 +18,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-12 col-sm-6 col-xl-4 col-xxl-6">
+            <div class="card overflow-hidden">
+                <div class="card-body p-0 d-flex align-items-center">
+                    <div class="py-4 px-5 me-3 text-white bg-success">
+                        <x-heroicon-o-book-open height="24" width="24"/>
+                    </div>
+                    <div>
+                        <div class="fs-6 fw-semibold text-primary">{{ $materialDoneTotal }}</div>
+                        <div class="text-body-secondary text-uppercase fw-semibold small">
+                            {{ __('Material Done') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-xl-4 col-xxl-6">
+            <div class="card overflow-hidden">
+                <div class="card-body p-0 d-flex align-items-center">
+                    <div class="py-4 px-5 me-3 text-white bg-secondary">
+                        <x-heroicon-o-book-open height="24" width="24"/>
+                    </div>
+                    <div>
+                        <div class="fs-6 fw-semibold text-primary">{{ $materialNotDoneTotal }}</div>
+                        <div class="text-body-secondary text-uppercase fw-semibold small">
+                            {{ __('Material Not Done') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

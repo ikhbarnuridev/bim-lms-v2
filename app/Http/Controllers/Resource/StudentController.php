@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Student\CreateRequest;
-use App\Http\Requests\Student\EditRequest;
+use App\Http\Requests\Student\StoreRequest;
+use App\Http\Requests\Student\UpdateRequest;
 use App\Models\Student;
 use App\Models\User;
 use Exception;
@@ -36,7 +36,7 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(CreateRequest $request)
+    public function store(StoreRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -89,7 +89,7 @@ class StudentController extends Controller
             ->with('student', $student);
     }
 
-    public function update(EditRequest $request, Student $student)
+    public function update(UpdateRequest $request, Student $student)
     {
         try {
             DB::beginTransaction();

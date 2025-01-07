@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Student;
+namespace App\Http\Requests\Teacher;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'nis' => ['required', 'string', 'unique:students,nis'],
+            'username' => ['required', 'string', 'unique:users,username'],
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -32,6 +34,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => __('Full Name'),
+            'password_confirmation' => __('Password Confirmation'),
         ];
     }
 

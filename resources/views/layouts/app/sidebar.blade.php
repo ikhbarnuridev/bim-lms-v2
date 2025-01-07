@@ -79,10 +79,10 @@
         @if(auth()->user()->isStudent())
             <li class="nav-item">
                 <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
-                   href="{{ route('material.index') }}"
+                   href="{{ route('my-material.list') }}"
                 >
                     <x-heroicon-o-book-open class="me-2" height="24" width="24"/>
-                    {{ __('Material') }}
+                    {{ __('My Material') }}
                 </a>
             </li>
         @endif

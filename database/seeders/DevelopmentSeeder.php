@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MaterialStatus;
 use Database\Factories\MaterialFactory;
 use Database\Factories\StudentFactory;
 use Database\Factories\UserFactory;
@@ -23,7 +24,7 @@ class DevelopmentSeeder extends Seeder
         $admin->assignRole('admin');
 
         // Create students
-        StudentFactory::new()->count(60)->create();
+        $students = StudentFactory::new()->count(60)->create();
 
         // Create teachers
         $teachers = UserFactory::new()->count(5)->create();
@@ -32,7 +33,7 @@ class DevelopmentSeeder extends Seeder
         }
 
         // Create materials
-        MaterialFactory::new()->createMany([
+        $materials = MaterialFactory::new()->createMany([
             [
                 'title' => 'Pengertian Fiqih',
                 'slug' => 'pengertian-fiqih',
@@ -94,5 +95,24 @@ class DevelopmentSeeder extends Seeder
                 'slug' => 'etika-dalam-islam',
             ],
         ]);
+
+        // Create material statuses
+        foreach ($materials as $material) {
+            // Set material created by and updated by
+            $teacher = $teachers->random();
+
+            $material->update([
+                'created_by' => $teacher->id,
+                'updated_by' => $teacher->id,
+            ]);
+
+            foreach ($students as $student) {
+                MaterialStatus::create([
+                    'is_done' => fake()->boolean(),
+                    'student_id' => $student->id,
+                    'material_id' => $material->id,
+                ]);
+            }
+        }
     }
 }

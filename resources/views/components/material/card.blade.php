@@ -1,4 +1,10 @@
 <div class="card h-100">
+    @if(auth()->user()->isStudent())
+        @if($material->isDone())
+            <div class="ribbon"><span>Selesai</span></div>
+        @endif
+    @endif
+
     <img src="{{ $material->getCoverUrl() }}" class="card-img-top" alt="Cover"
          height="140">
 
