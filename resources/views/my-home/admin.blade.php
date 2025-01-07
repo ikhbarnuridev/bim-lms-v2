@@ -19,30 +19,14 @@
             </div>
         </div>
 
-        <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
-            <div class="card overflow-hidden">
-                <div class="card-body p-0 d-flex align-items-center">
-                    <div class="py-4 px-5 me-3 text-white bg-primary">
-                        <x-heroicon-o-users height="24" width="24"/>
-                    </div>
-                    <div>
-                        <div class="fs-6 fw-semibold text-primary">{{ rand(0, 100) }}</div>
-                        <div class="text-body-secondary text-uppercase fw-semibold small">
-                            {{ __('Student') }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
+        <div class="col-12 col-sm-6 col-xl-4 col-xxl-4">
             <div class="card overflow-hidden">
                 <div class="card-body p-0 d-flex align-items-center">
                     <div class="py-4 px-5 me-3 text-white bg-primary">
                         <x-heroicon-o-book-open height="24" width="24"/>
                     </div>
                     <div>
-                        <div class="fs-6 fw-semibold text-primary">{{ rand(0, 100) }}</div>
+                        <div class="fs-6 fw-semibold text-primary">{{ $materialTotal }}</div>
                         <div class="text-body-secondary text-uppercase fw-semibold small">
                             {{ __('Material') }}
                         </div>
@@ -51,32 +35,32 @@
             </div>
         </div>
 
-        <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
+        <div class="col-12 col-sm-6 col-xl-4 col-xxl-4">
             <div class="card overflow-hidden">
                 <div class="card-body p-0 d-flex align-items-center">
                     <div class="py-4 px-5 me-3 text-white bg-primary">
-                        <x-heroicon-o-pencil height="24" width="24"/>
+                        <x-heroicon-o-users height="24" width="24"/>
                     </div>
                     <div>
-                        <div class="fs-6 fw-semibold text-primary">{{ rand(0, 100) }}</div>
+                        <div class="fs-6 fw-semibold text-primary">{{ $teacherTotal }}</div>
                         <div class="text-body-secondary text-uppercase fw-semibold small">
-                            {{ __('Exercise') }}
+                            {{ __('Teacher') }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-12 col-sm-6 col-xl-4 col-xxl-3">
+        <div class="col-12 col-sm-6 col-xl-4 col-xxl-4">
             <div class="card overflow-hidden">
                 <div class="card-body p-0 d-flex align-items-center">
                     <div class="py-4 px-5 me-3 text-white bg-primary">
-                        <x-heroicon-o-document-text height="24" width="24"/>
+                        <x-heroicon-o-users height="24" width="24"/>
                     </div>
                     <div>
-                        <div class="fs-6 fw-semibold text-primary">{{ rand(0, 100) }}</div>
+                        <div class="fs-6 fw-semibold text-primary">{{ $studentTotal }}</div>
                         <div class="text-body-secondary text-uppercase fw-semibold small">
-                            {{ __('Question') }}
+                            {{ __('Student') }}
                         </div>
                     </div>
                 </div>
