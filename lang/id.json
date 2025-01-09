@@ -61,7 +61,7 @@
     "Export": "Ekspor",
     "Export :name": "Export :name",
     "Failed Dependency": "Dependensi gagal",
-    "File": "Mengajukan",
+    "File": "Berkas",
     "Files": "File",
     "Forbidden": "Dilarang",
     "Found": "Ditemukan",
@@ -283,5 +283,8 @@
     "Material successfully updated": "Materi berhasil diperbarui",
     "Failed to update material": "Gagal memperbarui materi",
     "Material successfully deleted": "Materi berhasil dihapus",
-    "Failed to delete material": "Gagal meghapus materi"
+    "Failed to delete material": "Gagal meghapus materi",
+    "Upload File": "Upload Berkas",
+    "File successfully uploaded": "Berkas berhasil diupload",
+    "Failed to upload file": "Gagal mengupload berkas"
 }

@@ -10,8 +10,7 @@ class MyMaterialController extends Controller
     {
         $search = request()->input('s');
 
-        $query = Material::query()
-            ->whereRelation('materialStatuses', 'student_id', auth()->id());
+        $query = Material::query();
 
         if ($search) {
             $query->where('title', 'like', '%'.$search.'%');

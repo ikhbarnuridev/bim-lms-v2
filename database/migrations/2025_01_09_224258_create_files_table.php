@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('cover')->nullable();
-            $table->text('description')->nullable();
-            $table->unsignedBigInteger('teacher_id');
-            $table->unsignedInteger('order')->unique();
+            $table->string('name')->unique();
+            $table->string('path');
+            $table->unsignedBigInteger('content_id')->unique();
 
             $table->timestamps();
             $table->softDeletes();
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('files');
     }
 };

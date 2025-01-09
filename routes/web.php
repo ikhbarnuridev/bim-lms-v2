@@ -13,6 +13,7 @@ use App\Http\Controllers\MyHomeController;
 use App\Http\Controllers\MyMaterialController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\RankingController;
+use App\Http\Controllers\Resource\FileController;
 use App\Http\Controllers\Resource\MaterialController;
 use App\Http\Controllers\Resource\StudentController;
 use App\Http\Controllers\Resource\TeacherController;
@@ -58,6 +59,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
     Route::resource('user', UserController::class);
+
+    Route::post('/file/{material}', [FileController::class, 'store'])->name('file.store');
+    Route::get('/file/{file}', [FileController::class, 'download'])->name('file.download');
 
     Route::get('my-material/list', [MyMaterialController::class, 'list'])->name('my-material.list');
     Route::get('my-material/{material}/detail', [MyMaterialController::class, 'detail'])->name('my-material.detail');

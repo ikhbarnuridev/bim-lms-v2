@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'title' => ['required', 'string', 'max:255', 'unique:materials,title,' . $this->material->id],
+            'title' => ['required', 'string', 'max:255', 'unique:materials,title,'.$this->material->id],
             'description' => ['required', 'string'],
             'cover' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
         ];

@@ -18,14 +18,9 @@ class Material extends Model
         'id',
     ];
 
-    public function chapter(): BelongsTo
+    public function contents(): HasMany
     {
-        return $this->belongsTo(Chapter::class);
-    }
-
-    public function materialStatuses(): HasMany
-    {
-        return $this->hasMany(MaterialStatus::class);
+        return $this->hasMany(Content::class);
     }
 
     public function teacher(): BelongsTo
@@ -40,9 +35,22 @@ class Material extends Model
 
     public function isDone()
     {
-        return $this->materialStatuses()
-            ->where('student_id', auth()->id())
-            ->first()
-            ->is_done;
+        $done = false;
+
+        $contentProgresses = ContentProgress::query()
+            ->whereRelation('content', 'material_id', $this->id)
+            ->where('student_id', auth()->user()->student->id)
+            ->get();
+
+        foreach ($contentProgresses as $contentProgress) {
+            if (!$contentProgress->is_done) {
+                $done = false;
+                break;
+            }
+
+            $done = true;
+        }
+
+        return $done;
     }
 }

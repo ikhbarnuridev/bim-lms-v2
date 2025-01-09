@@ -9,10 +9,8 @@ use App\Models\Material;
 use App\Models\User;
 use App\Services\MaterialService;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -24,12 +22,12 @@ class MaterialController extends Controller
 
         $query = Material::query();
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $query->where('teacher_id', auth()->id());
         }
 
         if ($search) {
-            $query->where('title', 'like', '%' . $search . '%');
+            $query->where('title', 'like', '%'.$search.'%');
         }
 
         return view('resource.material.index', [
@@ -107,8 +105,8 @@ class MaterialController extends Controller
             $validatedData = $request->validated();
 
             if (isset($validatedData['cover'])) {
-                if ($material->cover != null && file_exists(public_path('storage/' . $material->cover))) {
-                    File::delete(public_path('storage/' . $material->cover));
+                if ($material->cover != null && file_exists(public_path('storage/'.$material->cover))) {
+                    File::delete(public_path('storage/'.$material->cover));
                 }
 
                 $validatedData['cover'] = $validatedData['cover']->store('material/cover', 'public');
@@ -142,8 +140,8 @@ class MaterialController extends Controller
         try {
             DB::beginTransaction();
 
-            if ($material->cover != null && file_exists(public_path('storage/' . $material->cover))) {
-                File::delete(public_path('storage/' . $material->cover));
+            if ($material->cover != null && file_exists(public_path('storage/'.$material->cover))) {
+                File::delete(public_path('storage/'.$material->cover));
             }
 
             $material->forceDelete();

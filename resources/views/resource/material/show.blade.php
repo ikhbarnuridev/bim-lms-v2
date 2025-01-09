@@ -70,6 +70,165 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title m-0">Konten Materi</h2>
+                </div>
+                <div class="card-header">
+                    <div class="d-flex justify-content-lg-center gap-2 flex-wrap">
+                        <a
+                            href="#"
+                            class="text-decoration-none btn btn-primary flex-fill"
+                            style="width: 100px;height: 100px"
+                        >
+                            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+                                <x-heroicon-o-plus height="40" width="40"/>
+                                <div class="small mt-1">
+                                    <span>Tambah</span>
+                                    Halaman
+                                </div>
+                            </div>
+                        </a>
+
+                        <button
+                            class="text-decoration-none btn btn-primary flex-fill"
+                            style="width: 100px;height: 100px"
+                            data-coreui-toggle="modal"
+                            data-coreui-target="#fileUploadModal"
+                        >
+                            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+                                <x-heroicon-o-plus height="40" width="40"/>
+                                <div class="small mt-1">
+                                    <span>Upload</span>
+                                    Berkas
+                                </div>
+                            </div>
+                        </button>
+
+                        <a
+                            href="#"
+                            class="text-decoration-none btn btn-primary flex-fill"
+                            style="width: 100px;height: 100px"
+                        >
+                            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+                                <x-heroicon-o-plus height="40" width="40"/>
+                                <div class="small mt-1">
+                                    <span>Tambah</span>
+                                    Latihan
+                                </div>
+                            </div>
+                        </a>
+
+                        <a
+                            href="#"
+                            class="text-decoration-none btn btn-primary flex-fill"
+                            style="width: 100px;height: 100px"
+                        >
+                            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+                                <x-heroicon-o-plus height="40" width="40"/>
+                                <div class="small mt-1">
+                                    <span>Tambah</span>
+                                    Ujian
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    @if(count($material->contents))
+                        <div class="row row-gap-2">
+                            @foreach($material->contents as $content)
+                                <div class="col-12">
+                                    @if($content->type == 'page')
+                                    @elseif($content->type == 'file')
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <a
+                                                    class="text-decoration-none d-flex flex-row align-items-center small    "
+                                                    href="{{ route('download') }}?filePath={{ $content->file->path }}"
+                                                    download
+                                                >
+                                                    <x-heroicon-o-document-arrow-down height="24" width="24"
+                                                                                      class="me-2"/>
+                                                    {{ $content->file->name }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @elseif($content->type == 'exam')
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <x-section.empty-state/>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="fileUploadModal" data-coreui-backdrop="static" data-coreui-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="fileUploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form action="{{ route('file.store', $material) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="fileUploadModalLabel">{{ __('Upload File') }}</h5>
+                        <button type="reset" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body py-0">
+                        <div class="mb-3">
+                            <label for="name" class="form-label required">
+                                {{ __('Name') }}
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control {{ $errors->first('name') != null ? 'is-invalid' : '' }}"
+                                id="name"
+                                name="name"
+                                value="{{ old('name') }}"
+                                maxlength="255"
+                            >
+                            <div class="invalid-feedback">
+                                {{ $errors->first('name') }}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="file" class="form-label required">
+                                {{ __('File') }}
+                            </label>
+                            <input
+                                type="file"
+                                class="form-control {{ $errors->first('file') != null ? 'is-invalid' : '' }}"
+                                id="file"
+                                name="file"
+                            >
+                            <div class="invalid-feedback">
+                                {{ $errors->first('file') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-2 justify-content-start">
+                        <button type="submit" class="btn btn-primary my-0">
+                            <x-fas-save height="20" width="20"/>
+                            {{ __('Save') }}
+                        </button>
+                        <button type="reset" class="btn btn-secondary my-0"
+                                data-coreui-dismiss="modal">
+                            {{ __('Cancel') }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection
 

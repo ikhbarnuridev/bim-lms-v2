@@ -47,7 +47,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if(!empty($teachers) && $teachers->count() > 0)
+                            @if(count($teachers))
                                 @foreach($teachers as $index => $teacher)
                                     <tr class="align-middle">
                                         <th class="text-nowrap text-center">{{ $index + $teachers->firstItem() }}</th>
@@ -108,9 +108,9 @@
                                     </tr>
                                 @endforeach
                             @else
-                                <tr class="align-middle">
-                                    <td class="text-center py-3" colspan="3">
-                                        {{ __('No Data Available in Table') }}
+                                <tr>
+                                    <td class="p-0" colspan="3">
+                                        <x-section.empty-state/>
                                     </td>
                                 </tr>
                             @endif
