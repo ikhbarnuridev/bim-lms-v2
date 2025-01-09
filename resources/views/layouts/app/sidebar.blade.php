@@ -35,6 +35,15 @@
         </li>
 
         @if(auth()->user()->isAdmin())
+            <li class="nav-item">
+                <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
+                   href="{{ route('ranking') }}"
+                >
+                    <x-phosphor-ranking-light class="me-2" height="24" width="24"/>
+                    {{ __('Ranking') }}
+                </a>
+            </li>
+
             <li class="nav-title">Master Data</li>
 
             <li class="nav-item">
@@ -74,6 +83,15 @@
                     {{ __('Material') }}
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
+                   href="{{ route('ranking') }}"
+                >
+                    <x-phosphor-ranking-light class="me-2" height="24" width="24"/>
+                    {{ __('Ranking') }}
+                </a>
+            </li>
         @endif
 
         @if(auth()->user()->isStudent())
@@ -83,6 +101,15 @@
                 >
                     <x-heroicon-o-book-open class="me-2" height="24" width="24"/>
                     {{ __('My Material') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
+                   href="{{ route('ranking') }}"
+                >
+                    <x-phosphor-ranking-light class="me-2" height="24" width="24"/>
+                    {{ __('Ranking') }}
                 </a>
             </li>
         @endif

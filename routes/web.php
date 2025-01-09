@@ -12,6 +12,7 @@ use App\Http\Controllers\MyAccount\ProfileController;
 use App\Http\Controllers\MyHomeController;
 use App\Http\Controllers\MyMaterialController;
 use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\Resource\MaterialController;
 use App\Http\Controllers\Resource\StudentController;
 use App\Http\Controllers\Resource\TeacherController;
@@ -60,6 +61,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('my-material/list', [MyMaterialController::class, 'list'])->name('my-material.list');
     Route::get('my-material/{material}/detail', [MyMaterialController::class, 'detail'])->name('my-material.detail');
+
+    Route::get('ranking', RankingController::class)->name('ranking');
 
     Route::prefix('my-account')->name('my-account.')->group(function () {
         Route::get('/profile', ProfileController::class)->name('profile');
