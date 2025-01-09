@@ -28,9 +28,14 @@ class Material extends Model
         return $this->hasMany(MaterialStatus::class);
     }
 
+    public function teacher(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
+
     public function getCoverUrl(): ?string
     {
-        return $this->photo ? Storage::url($this->cover) : asset('assets/images/book-cover.png');
+        return $this->cover ? Storage::url($this->cover) : asset('assets/images/book-cover.png');
     }
 
     public function isDone()

@@ -22,7 +22,7 @@ class MaterialFactory extends Factory
             'slug' => $this->faker->slug(),
             'description' => $this->faker->paragraph(),
             'order' => (new MaterialService)->getNextOrder(),
-            'chapter_id' => ChapterFactory::new()->create(),
+            'teacher_id' => UserFactory::new(),
         ];
     }
 }

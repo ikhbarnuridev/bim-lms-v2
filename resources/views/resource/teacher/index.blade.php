@@ -14,6 +14,7 @@
                             data-coreui-toggle="modal"
                             data-coreui-target="#createModal"
                         >
+                            <x-heroicon-o-plus height="20" width="20"/>
                             Tambah
                         </button>
                     </div>
@@ -205,10 +206,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer border-0 pt-2">
+                    <div class="modal-footer border-0 pt-2 justify-content-start">
+                        <button type="submit" class="btn btn-primary my-0">
+                            <x-fas-save height="20" width="20"/>
+                            {{ __('Save') }}
+                        </button>
                         <button type="reset" class="btn btn-secondary my-0"
-                                data-coreui-dismiss="modal">{{ __('Cancel') }}</button>
-                        <button type="submit" class="btn btn-primary my-0">{{ __('Save') }}</button>
+                                data-coreui-dismiss="modal">{{ __('Cancel') }}
+                        </button>
                     </div>
                 </form>
             </div>
@@ -302,10 +307,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer border-0 pt-2">
+                        <div class="modal-footer border-0 pt-2 justify-content-start">
+                            <button type="submit" class="btn btn-primary my-0">
+                                <x-fas-save height="20" width="20"/>
+                                {{ __('Save') }}
+                            </button>
                             <button type="reset" class="btn btn-secondary my-0"
-                                    data-coreui-dismiss="modal">{{ __('Cancel') }}</button>
-                            <button type="submit" class="btn btn-primary my-0">{{ __('Save') }}</button>
+                                    data-coreui-dismiss="modal">{{ __('Cancel') }}
+                            </button>
                         </div>
                     </form>
                 </div>

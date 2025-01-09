@@ -52,8 +52,9 @@
                         </div>
                     </div>
 
-                    <div class="text-end mt-2">
+                    <div class="mt-2">
                         <button type="submit" class="btn btn-primary">
+                            <x-fas-save height="20" width="20"/>
                             {{ __('Update') }}
                         </button>
                     </div>

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="d-flex justify-content-lg-end gap-2 flex-wrap">
-                        <a href="{{ route('material.index') }}"
+                        <a href="{{ route('material.show', $material) }}"
                            class="btn btn-light border"
                         >
                             <x-heroicon-s-arrow-left height="20" width="20"/>
@@ -23,8 +23,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('material.store') }}" method="post" enctype="multipart/form-data" novalidate>
+                    <form action="{{ route('material.update', $material) }}" method="post" enctype="multipart/form-data" novalidate>
                         @csrf
+                        @method('put')
 
                         <div class="row">
                             <div class="col-12">
@@ -37,7 +38,7 @@
                                         class="form-control {{ $errors->first('title') != null ? 'is-invalid' : '' }}"
                                         id="title"
                                         name="title"
-                                        value="{{ old('title') }}"
+                                        value="{{ old('title', $material->title) }}"
                                         required
                                     >
                                     <div class="invalid-feedback">
@@ -58,7 +59,7 @@
                                         name="description"
                                         rows="3"
                                         required
-                                    >{{ old('description') }}</textarea>
+                                    >{{ old('description', $material->description) }}</textarea>
                                     <div class="invalid-feedback">
                                         {{ $errors->first('description') }}
                                     </div>
@@ -70,9 +71,14 @@
                                     <label for="cover" class="form-label">
                                         {{ __('Cover') }}
                                     </label>
+                                    <img src="{{ $material->getCoverUrl() }}"
+                                         class="card-img-top border border-bottom-0"
+                                         alt="Cover"
+                                         style="max-height: 400px"
+                                    >
                                     <input
                                         type="file"
-                                        class="form-control {{ $errors->first('cover') != null ? 'is-invalid' : '' }}"
+                                        class="form-control {{ $errors->first('cover') != null ? 'is-invalid' : '' }} rounded-top-0"
                                         id="cover"
                                         name="cover"
                                         value="{{ old('cover') }}"
@@ -84,7 +90,7 @@
                             </div>
 
                             @if(auth()->user()->isAdmin())
-                                <div class="col-12 ">
+                                <div class="col-12">
                                     <div class="mb-3">
                                         <label for="teacher_id" class="form-label required">
                                             {{ __('Teacher') }}
@@ -100,7 +106,7 @@
                                             @foreach($teachers as $teacher)
                                                 <option
                                                     value="{{ $teacher->id }}"
-                                                    @if(old('teacher_id') == $teacher->id)
+                                                    @if(old('teacher_id', $material->teacher_id) == $teacher->id)
                                                         selected
                                                     @endif
                                                 >

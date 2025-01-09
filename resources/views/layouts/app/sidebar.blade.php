@@ -36,7 +36,7 @@
 
         @if(auth()->user()->isAdmin())
             <li class="nav-item">
-                <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
+                <a class="nav-link py-3 @if(request()->is('ranking')) active @endif"
                    href="{{ route('ranking') }}"
                 >
                     <x-phosphor-ranking-light class="me-2" height="24" width="24"/>
@@ -85,11 +85,20 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
+                <a class="nav-link py-3 @if(request()->is('ranking')) active @endif"
                    href="{{ route('ranking') }}"
                 >
                     <x-phosphor-ranking-light class="me-2" height="24" width="24"/>
                     {{ __('Ranking') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link py-3 @if(request()->is('student/*')) active @endif"
+                   href="{{ route('student.index') }}"
+                >
+                    <x-heroicon-o-users class="me-2" height="24" width="24"/>
+                    {{ __('Student') }}
                 </a>
             </li>
         @endif
@@ -105,7 +114,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link py-3 @if(request()->is('material/*')) active @endif"
+                <a class="nav-link py-3 @if(request()->is('ranking')) active @endif"
                    href="{{ route('ranking') }}"
                 >
                     <x-phosphor-ranking-light class="me-2" height="24" width="24"/>

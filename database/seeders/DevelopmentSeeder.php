@@ -98,12 +98,11 @@ class DevelopmentSeeder extends Seeder
 
         // Create material statuses
         foreach ($materials as $material) {
-            // Set material created by and updated by
+            // Set material teacher
             $teacher = $teachers->random();
 
             $material->update([
-                'created_by' => $teacher->id,
-                'updated_by' => $teacher->id,
+                'teacher_id' => $teacher->id,
             ]);
 
             foreach ($students as $student) {

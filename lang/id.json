@@ -270,11 +270,18 @@
     "Back": "Kembali",
     "Create Material": "Buat Materi",
     "Add Material": "Tambah Materi",
+    "Edit Material": "Ubah Materi",
     "My Material": "Materi Saya",
     "Material Detail": "Detail Materi",
     "Material Done": "Materi Selesai",
     "Material Not Done": "Materi Belum Selesai",
     "Title": "Judul",
     "Description": "Deskripsi",
-    "Ranking": "Peringkat"
+    "Ranking": "Peringkat",
+    "Material successfully added": "Materi berhasil ditambahkan",
+    "Failed to add material": "Gagal menambahkan materi",
+    "Material successfully updated": "Materi berhasil diperbarui",
+    "Failed to update material": "Gagal memperbarui materi",
+    "Material successfully deleted": "Materi berhasil dihapus",
+    "Failed to delete material": "Gagal meghapus materi"
 }
