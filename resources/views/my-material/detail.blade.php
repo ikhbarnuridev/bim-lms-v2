@@ -67,17 +67,53 @@
                         <div class="row row-gap-2">
                             @foreach($material->contents as $content)
                                 <div class="col-12">
-                                    @if($content->type == 'page')
+                                    @if($content->type == 'article')
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row row-gap-24">
+                                                    <div class="col-12 col-lg-10">
+                                                        <div
+                                                            class="text-primary d-flex flex-row align-items-center small">
+                                                            <span class="me-2">
+                                                                <x-heroicon-o-document-text height="24" width="24"/>
+                                                            </span>
+                                                            <div>{{ $content->article->title }}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-2">
+                                                        <a class="btn btn-sm btn-primary w-100 rounded-pill"
+                                                           href="{{ route('article.read', [$material, $content->article->slug]) }}">
+                                                            {{ __('Read') }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @elseif($content->type == 'file')
                                         <div class="card">
                                             <div class="card-body">
-                                                <a
-                                                    class="text-decoration-none d-flex flex-row align-items-center small"
-                                                    href="{{ route('file.download', $content->file) }}?filePath={{ $content->file->path }}"
-                                                >
-                                                    <x-heroicon-o-document-arrow-down height="24" width="24" class="me-2"/>
-                                                    {{ $content->file->name }}
-                                                </a>
+                                                <div class="row row-gap-24">
+                                                    <div class="col-12 col-lg-10">
+                                                        <div
+                                                            class="text-primary d-flex flex-row align-items-center small">
+                                                            <span class="me-2">
+                                                                <x-heroicon-o-document-arrow-down height="24"
+                                                                                                  width="24"/>
+                                                            </span>
+                                                            <div>{{ $content->file->name }}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-2">
+                                                        <a class="btn btn-sm btn-primary w-100 rounded-pill"
+                                                           href="{{ route('file.download', $content->file) }}?filePath={{ $content->file->path }}"
+                                                           download
+                                                        >
+                                                            {{ __('Download') }}
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     @elseif($content->type == 'exam')

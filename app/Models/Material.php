@@ -43,7 +43,7 @@ class Material extends Model
             ->get();
 
         foreach ($contentProgresses as $contentProgress) {
-            if (!$contentProgress->is_done) {
+            if (! $contentProgress->is_done) {
                 $done = false;
                 break;
             }

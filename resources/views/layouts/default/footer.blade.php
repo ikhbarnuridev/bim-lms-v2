@@ -7,7 +7,7 @@
                         <a class="navbar-brand d-flex align-items-center gap-2 py-3" href="{{ url()->current() }}"
                            style="margin-right: 120px">
                             <img src="{{ asset('assets/images/bim-logo.png') }}" alt="" width="62" height="60">
-                            <span class="fw-semibold fs-5">BIM-LMS</span>
+                            <span class="fw-semibold fs-5">{{ env('APP_NAME') }}</span>
                         </a>
                     </div>
                     <div class="col-12 col-lg-5 mt-5 mt-lg-3 offset-lg-1">

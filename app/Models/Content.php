@@ -26,4 +26,9 @@ class Content extends Model
     {
         return $this->hasOne(File::class);
     }
+
+    public function article(): HasOne
+    {
+        return $this->hasOne(Article::class);
+    }
 }

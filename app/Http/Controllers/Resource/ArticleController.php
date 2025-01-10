@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\File\StoreRequest;
+use App\Http\Requests\Article\StoreRequest;
+use App\Models\Article;
 use App\Models\Content;
 use App\Models\ContentProgress;
-use App\Models\File;
 use App\Models\Material;
 use App\Models\Student;
 use App\Services\ContentService;
@@ -14,9 +14,18 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
-class FileController extends Controller
+class ArticleController extends Controller
 {
+    public function create(Material $material)
+    {
+        return view('resource.article.create', [
+            'title' => __('Add Article'),
+            'material' => $material,
+        ]);
+    }
+
     public function store(StoreRequest $request, Material $material)
     {
         try {
@@ -24,12 +33,8 @@ class FileController extends Controller
 
             $validatedData = $request->validated();
 
-            if (isset($validatedData['file'])) {
-                $validatedData['path'] = $validatedData['file']->store('material/file', 'public');
-            }
-
             $content = Content::create([
-                'type' => 'file',
+                'type' => 'article',
                 'order' => (new ContentService)->getNextOrder($material),
                 'material_id' => $material->id,
             ]);
@@ -43,12 +48,13 @@ class FileController extends Controller
             }
 
             $validatedData['content_id'] = $content->id;
+            $validatedData['slug'] = Str::slug($validatedData['title']);
 
-            File::create($validatedData);
+            Article::create($validatedData);
 
             DB::commit();
 
-            session()->flash('success', __('File successfully uploaded'));
+            session()->flash('success', __('Article successfully added'));
 
             return redirect()->route('material.show', $material);
         } catch (Exception $exception) {
@@ -56,27 +62,37 @@ class FileController extends Controller
 
             DB::rollBack();
 
-            session()->flash('error', __('Failed to upload file'));
+            session()->flash('error', __('Failed to add article'));
 
             return redirect()->back();
         }
     }
 
-    public function update(Request $request, File $file)
+    public function show(Article $article)
     {
         //
     }
 
-    public function destroy(File $file)
+    public function edit(Article $article)
     {
         //
     }
 
-    public function download(File $file)
+    public function update(Request $request, Article $article)
     {
-        $filePath = public_path('storage/'.$file->path);
+        //
+    }
 
-        $contentProgress = ContentProgress::where('content_id', $file->content_id)
+    public function destroy(Article $article)
+    {
+        //
+    }
+
+    public function read(Material $material, $slug)
+    {
+        $article = Article::where('slug', $slug)->firstOrFail();
+
+        $contentProgress = ContentProgress::where('content_id', $article->content_id)
             ->where('student_id', auth()->user()->student->id)
             ->first();
 
@@ -87,6 +103,10 @@ class FileController extends Controller
             ]);
         }
 
-        return response()->download($filePath);
+        return view('resource.article.read', [
+            'title' => __('Read Article'),
+            'article' => $article,
+            'material' => $material,
+        ]);
     }
 }

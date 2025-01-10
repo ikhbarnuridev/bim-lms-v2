@@ -7,7 +7,7 @@
             >
                 <img src="{{ asset('assets/images/bim-logo.png') }}" alt="Logo"/>
                 <span class="ms-2 fw-semibold text-light" style="font-size: 20px">
-                    BIM LMS
+                    {{ env('APP_NAME') }}
                 </span>
             </a>
 

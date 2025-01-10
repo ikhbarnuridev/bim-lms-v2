@@ -286,5 +286,13 @@
     "Failed to delete material": "Gagal meghapus materi",
     "Upload File": "Upload Berkas",
     "File successfully uploaded": "Berkas berhasil diupload",
-    "Failed to upload file": "Gagal mengupload berkas"
+    "Failed to upload file": "Gagal mengupload berkas",
+    "Add Article": "Tambah Artikel",
+    "Edit Article": "Ubah Artikel",
+    "Content": "Konten",
+    "Article successfully added": "Artikel berhaisl ditambahkan",
+    "Failed to add article": "Gagal menambahkan artikel",
+    "Read Article": "Baca Artikel",
+    "Read": "Baca",
+    "Download": "Unduh"
 }

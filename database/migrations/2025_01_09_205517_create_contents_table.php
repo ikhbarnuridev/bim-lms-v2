@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['page', 'file', 'exam']);
+            $table->enum('type', ['article', 'file', 'exam', 'final_exam']);
             $table->unsignedInteger('order');
             $table->unsignedBigInteger('material_id');
 

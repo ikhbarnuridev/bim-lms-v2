@@ -3,7 +3,7 @@
         <a class="navbar-brand d-flex align-items-center gap-2 d-none d-lg-block py-3" href="{{ url()->current() }}"
            style="margin-right: 120px">
             <img src="{{ asset('assets/images/bim-logo.png') }}" alt="" width="62" height="60">
-            <span class="fw-semibold">BIM LMS</span>
+            <span class="fw-semibold">{{ env('APP_NAME') }}</span>
         </a>
 
         <button class="btn no-outline px-0 d-lg-none" type="button" data-coreui-toggle="offcanvas"
@@ -63,7 +63,7 @@
             <div class="offcanvas-header align-items-center justify-content-between shadow-bottom" style="height: 102px">
                 <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                     <img src="{{ asset('assets/images/bim-logo.png') }}" alt="" width="62" height="60">
-                    <span class="fw-semibold">BIM LMS</span>
+                    <span class="fw-semibold">{{ env('APP_NAME') }}</span>
                 </a>
                 <button type="button"
                         class="btn no-outline px-0"
