@@ -14,6 +14,7 @@ use App\Http\Controllers\MyMaterialController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\Resource\ArticleController;
+use App\Http\Controllers\Resource\ContentController;
 use App\Http\Controllers\Resource\ExamController;
 use App\Http\Controllers\Resource\FileController;
 use App\Http\Controllers\Resource\MaterialController;
@@ -63,6 +64,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('student', StudentController::class);
     Route::resource('material', MaterialController::class);
     Route::resource('user', UserController::class);
+
+    Route::get('/content/{content}/order/edit', [ContentController::class, 'orderEdit'])->name('content.order.edit');
+    Route::put('/content/{content}/order', [ContentController::class, 'orderUpdate'])->name('content.order.update');
 
     Route::post('/file/{material}', [FileController::class, 'store'])->name('file.store');
     Route::get('/file/{file}', [FileController::class, 'show'])->name('file.show');

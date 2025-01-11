@@ -3,47 +3,80 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Content\UpdateOrderRequest;
+use App\Models\Content;
+use App\Models\ContentProgress;
+use App\Models\File;
+use App\Models\Student;
+use App\Services\ContentService;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ContentController extends Controller
 {
-    public function index()
+    public function orderEdit(Content $content)
     {
-        //
+        $availableOrders = Content::where('material_id', $content->material_id)
+            ->get()
+            ->pluck('order')
+            ->toArray();
+
+        $script = '
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const modalElement = document.getElementById("reorderModal");
+                const modal = new coreui.Modal(modalElement);
+                modal.show();
+            });
+        </script>
+        ';
+
+        return redirect()->back()->with([
+            'content' => $content,
+            'availableOrders' => $availableOrders,
+            'script' => $script,
+        ]);
     }
 
-    public function create()
+    public function orderUpdate(UpdateOrderRequest $request, Content $content)
     {
-        //
-    }
+        try {
+            DB::beginTransaction();
 
-    public function store(Request $request)
-    {
-        //
-    }
+            $validatedData = $request->validated();
 
-    public function show(string $id)
-    {
-        //
-    }
+            $currentOrder = $content->order;
 
-    public function edit(string $id)
-    {
-        //
-    }
+            $content->update([
+                'order' => 0,
+            ]);
 
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            Content::where('material_id', $content->material_id)
+                ->where('order', $validatedData['to'])
+                ->first()
+                ->update([
+                    'order' => $currentOrder
+                ]);
 
-    public function destroy(string $id)
-    {
-        //
-    }
+            $content->update([
+                'order' => $validatedData['to'],
+            ]);
 
-    public function reorder()
-    {
-        //
+            DB::commit();
+
+            session()->flash('success', __('Urutan konten berhasil diperbarui'));
+
+            return redirect()->back();
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+
+            DB::rollBack();
+
+            session()->flash('error', __('Gagal memperbarui urutan konten'));
+
+            return redirect()->back();
+        }
     }
 }

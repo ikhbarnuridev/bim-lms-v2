@@ -20,7 +20,7 @@ class Material extends Model
 
     public function contents(): HasMany
     {
-        return $this->hasMany(Content::class);
+        return $this->hasMany(Content::class)->orderBy('order', 'asc');
     }
 
     public function teacher(): BelongsTo
