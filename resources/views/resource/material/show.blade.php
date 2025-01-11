@@ -108,7 +108,7 @@
                         </button>
 
                         <a
-                            href="#"
+                            href="{{ route('exam.create', $material) }}"
                             class="text-decoration-none btn btn-primary flex-fill"
                             style="width: 100px;height: 100px"
                         >
@@ -117,20 +117,6 @@
                                 <div class="small mt-1">
                                     <span>Tambah</span>
                                     Latihan
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="#"
-                            class="text-decoration-none btn btn-primary flex-fill"
-                            style="width: 100px;height: 100px"
-                        >
-                            <div class="h-100 d-flex flex-column justify-content-center align-items-center">
-                                <x-heroicon-o-plus height="40" width="40"/>
-                                <div class="small mt-1">
-                                    <span>Tambah</span>
-                                    Ujian
                                 </div>
                             </div>
                         </a>
@@ -155,13 +141,24 @@
                                                             <div>{{ $content->article->title }}</div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="col-12 col-lg-2">
-                                                        <a class="btn btn-sm btn-primary w-100 rounded-pill"
-                                                           href="{{ route('article.show', [$material, $content->article->slug]) }}">
-                                                            {{ __('Read') }}
-                                                        </a>
-                                                    </div>
+                                            <div class="card-footer">
+                                                <div class="d-flex justify-content-lg-end gap-2 flex-wrap">
+                                                    <button class="btn btn-secondary flex-fill flex-lg-grow-0"
+                                                            onclick="handleDelete({{ $material->id }})"
+                                                    >
+                                                        <x-heroicon-o-arrow-path height="20" width="20"/>
+                                                        {{ __('Reorder') }}
+                                                    </button>
+
+                                                    <a class="btn btn-info flex-fill flex-lg-grow-0"
+                                                       href="{{ route('article.show', [$material, $content->article]) }}"
+                                                    >
+                                                        <x-heroicon-o-eye height="20" width="20"/>
+                                                        {{ __('See') }}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,24 +170,73 @@
                                                         <div
                                                             class="text-primary d-flex flex-row align-items-center small">
                                                             <span class="me-2">
-                                                                <x-heroicon-o-document-arrow-down height="24" width="24"/>
+                                                                <x-heroicon-o-document-arrow-down
+                                                                    height="24"
+                                                                    width="24"
+                                                                />
                                                             </span>
                                                             <div>{{ $content->file->name }}</div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="col-12 col-lg-2">
-                                                        <a class="btn btn-sm btn-primary w-100 rounded-pill"
-                                                           href="{{ route('download') }}?filePath={{ $content->file->path }}"
-                                                           download
-                                                        >
-                                                            {{ __('Download') }}
-                                                        </a>
-                                                    </div>
+                                            <div class="card-footer">
+                                                <div class="d-flex justify-content-lg-end gap-2 flex-wrap">
+                                                    <button class="btn btn-secondary flex-fill flex-lg-grow-0"
+                                                            onclick="handleDelete({{ $material->id }})"
+                                                    >
+                                                        <x-heroicon-o-arrow-path height="20" width="20"/>
+                                                        {{ __('Reorder') }}
+                                                    </button>
+
+                                                    <a class="btn btn-info flex-fill flex-lg-grow-0"
+                                                       href="{{ route('file.show',  $content->file) }}"
+                                                       target="_blank"
+                                                    >
+                                                        <x-heroicon-o-eye height="20" width="20"/>
+                                                        {{ __('See') }}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     @elseif($content->type == 'exam')
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row row-gap-24">
+                                                    <div class="col-12 col-lg-10">
+                                                        <div
+                                                            class="text-primary d-flex flex-row align-items-center small">
+                                                            <span class="me-2">
+                                                                <x-heroicon-o-computer-desktop
+                                                                    height="24"
+                                                                    width="24"
+                                                                />
+                                                            </span>
+                                                            <div>{{ $content->exam->title }}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-footer">
+                                                <div class="d-flex justify-content-lg-end gap-2 flex-wrap">
+                                                    <button class="btn btn-secondary flex-fill flex-lg-grow-0"
+                                                            onclick="handleDelete({{ $material->id }})"
+                                                    >
+                                                        <x-heroicon-o-arrow-path height="20" width="20"/>
+                                                        {{ __('Reorder') }}
+                                                    </button>
+
+                                                    <a class="btn btn-info flex-fill flex-lg-grow-0"
+                                                       href="{{ route('exam.show', [$material, $content->exam]) }}"
+                                                    >
+                                                        <x-heroicon-o-eye height="20" width="20"/>
+                                                        {{ __('See') }}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                 </div>
                             @endforeach

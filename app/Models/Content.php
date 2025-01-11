@@ -31,4 +31,9 @@ class Content extends Model
     {
         return $this->hasOne(Article::class);
     }
+
+    public function exam(): HasOne
+    {
+        return $this->hasOne(Exam::class);
+    }
 }

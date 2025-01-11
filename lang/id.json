@@ -290,9 +290,21 @@
     "Add Article": "Tambah Artikel",
     "Edit Article": "Ubah Artikel",
     "Content": "Konten",
-    "Article successfully added": "Artikel berhaisl ditambahkan",
+    "Article successfully added": "Artikel berhasil ditambahkan",
     "Failed to add article": "Gagal menambahkan artikel",
     "Read Article": "Baca Artikel",
     "Read": "Baca",
-    "Download": "Unduh"
+    "Download": "Unduh",
+    "Duration": "Durasi",
+    "Add Exam": "Tambah Latihan",
+    "See": "Lihat",
+    "View Exam": "Lihat Latihan",
+    "Edit Exam": "Ubah Latihan",
+    "Exam successfully added": "Latihan berhasil ditambahkan",
+    "Failed to add exam": "Gagal menambahkan latihan",
+    "Exam successfully edited": "Latihan berhasil diperbarui",
+    "Failed to edit exam": "Gagal memperbarui latihan",
+    "Add Question": "Tambah Soal",
+    "Question successfully added": "Soal berhasil ditambahkan",
+    "Failed to add question": "Gagal menambahkan soal"
 }

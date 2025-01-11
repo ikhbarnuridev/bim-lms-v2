@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('student_exams', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['article', 'file', 'exam']);
-            $table->unsignedInteger('order');
-            $table->unsignedBigInteger('material_id');
+            $table->boolean('is_done');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('exam_id');
 
             $table->timestamps();
             $table->softDeletes();
@@ -24,7 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();
 
-            $table->unique(['order', 'material_id']);
+            $table->unique(['student_id', 'exam_id']);
         });
     }
 
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('student_exams');
     }
 };

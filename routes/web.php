@@ -14,8 +14,10 @@ use App\Http\Controllers\MyMaterialController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\Resource\ArticleController;
+use App\Http\Controllers\Resource\ExamController;
 use App\Http\Controllers\Resource\FileController;
 use App\Http\Controllers\Resource\MaterialController;
+use App\Http\Controllers\Resource\QuestionController;
 use App\Http\Controllers\Resource\StudentController;
 use App\Http\Controllers\Resource\TeacherController;
 use App\Http\Controllers\Resource\UserController;
@@ -62,12 +64,22 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user', UserController::class);
 
     Route::post('/file/{material}', [FileController::class, 'store'])->name('file.store');
-    Route::get('/file/{file}', [FileController::class, 'download'])->name('file.download');
+    Route::get('/file/{file}', [FileController::class, 'show'])->name('file.show');
+    Route::get('/file/{file}/download', [FileController::class, 'download'])->name('file.download');
 
     Route::get('material/{material}/article/create', [ArticleController::class, 'create'])->name('article.create');
     Route::get('material/{material}/article/{slug}', [ArticleController::class, 'show'])->name('article.show');
     Route::post('material/{material}/article', [ArticleController::class, 'store'])->name('article.store');
     Route::get('/material/{material}/article/{slug}/read', [ArticleController::class, 'read'])->name('article.read');
+
+    Route::get('material/{material}/exam/create', [ExamController::class, 'create'])->name('exam.create');
+    Route::post('material/{material}/exam', [ExamController::class, 'store'])->name('exam.store');
+    Route::get('material/{material}/exam/{exam}', [ExamController::class, 'show'])->name('exam.show');
+    Route::get('material/{material}/exam/{exam}/edit', [ExamController::class, 'edit'])->name('exam.edit');
+    Route::put('material/{material}/exam/{exam}', [ExamController::class, 'update'])->name('exam.update');
+    Route::delete('material/{material}/exam/{exam}', [ExamController::class, 'destroy'])->name('exam.destroy');
+
+    Route::post('material/{material}/exam/{exam}/question', [QuestionController::class, 'store'])->name('question.store');
 
     Route::get('my-material/list', [MyMaterialController::class, 'list'])->name('my-material.list');
     Route::get('my-material/{material}/detail', [MyMaterialController::class, 'detail'])->name('my-material.detail');

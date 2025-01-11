@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['article', 'file', 'exam']);
-            $table->unsignedInteger('order');
-            $table->unsignedBigInteger('material_id');
+            $table->string('label');
+            $table->boolean('is_correct')->default(false);
 
             $table->timestamps();
             $table->softDeletes();
@@ -23,8 +22,6 @@ return new class extends Migration
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();
-
-            $table->unique(['order', 'material_id']);
         });
     }
 
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('options');
     }
 };

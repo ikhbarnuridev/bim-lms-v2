@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Log;
 
 class FileController extends Controller
 {
+    public function show(File $file)
+    {
+        $filePath = public_path('storage/'.$file->path);
+
+        return response()->file($filePath);
+    }
+
     public function store(StoreRequest $request, Material $material)
     {
         try {
@@ -87,6 +94,6 @@ class FileController extends Controller
             ]);
         }
 
-        return response()->download($filePath);
+        return response()->file($filePath);
     }
 }

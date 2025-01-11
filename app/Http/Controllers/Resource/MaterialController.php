@@ -161,4 +161,6 @@ class MaterialController extends Controller
             return redirect()->back();
         }
     }
+
+    public function reorder() {}
 }

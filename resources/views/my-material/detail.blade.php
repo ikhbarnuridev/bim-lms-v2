@@ -108,7 +108,7 @@
                                                     <div class="col-12 col-lg-2">
                                                         <a class="btn btn-sm btn-primary w-100 rounded-pill"
                                                            href="{{ route('file.download', $content->file) }}?filePath={{ $content->file->path }}"
-                                                           download
+                                                           target="_blank"
                                                         >
                                                             {{ __('Download') }}
                                                         </a>
@@ -117,6 +117,29 @@
                                             </div>
                                         </div>
                                     @elseif($content->type == 'exam')
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row row-gap-24">
+                                                    <div class="col-12 col-lg-10">
+                                                        <div
+                                                            class="text-primary d-flex flex-row align-items-center small">
+                                                            <span class="me-2">
+                                                                <x-heroicon-o-computer-desktop height="24" width="24"/>
+                                                            </span>
+                                                            <div>{{ $content->exam->title }}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12 col-lg-2">
+                                                        <a class="btn btn-sm btn-primary w-100 rounded-pill"
+                                                           href="#"
+                                                        >
+                                                            {{ __('Detail') }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                 </div>
                             @endforeach
