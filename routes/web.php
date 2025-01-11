@@ -89,6 +89,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('material/{material}/exam/{exam}/question/{question}/edit', [QuestionController::class, 'edit'])->name('question.edit');
     Route::put('material/{material}/exam/{exam}/question/{question}', [QuestionController::class, 'update'])->name('question.update');
     Route::delete('material/{material}/exam/{exam}/question/{question}', [QuestionController::class, 'destroy'])->name('question.destroy');
+    Route::get('/question/{question}/order/edit', [QuestionController::class, 'orderEdit'])->name('question.order.edit');
+    Route::put('/question/{question}/order', [QuestionController::class, 'orderUpdate'])->name('question.order.update');
 
     Route::post('option/{question}', [OptionController::class, 'store'])->name('option.store');
     Route::get('option/{option}/edit', [OptionController::class, 'edit'])->name('option.edit');

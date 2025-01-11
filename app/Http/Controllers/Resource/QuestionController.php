@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Content\UpdateOrderRequest;
 use App\Http\Requests\Question\StoreRequest;
 use App\Http\Requests\Question\UpdateRequest;
+use App\Models\Content;
 use App\Models\Exam;
 use App\Models\Material;
 use App\Models\Question;
@@ -108,6 +110,70 @@ class QuestionController extends Controller
             DB::rollBack();
 
             session()->flash('error', __('Failed to delete question'));
+
+            return redirect()->back();
+        }
+    }
+
+    public function orderEdit(Question $question)
+    {
+        $availableOrders = Question::where('exam_id', $question->exam_id)
+            ->get()
+            ->pluck('order')
+            ->toArray();
+
+        $script = '
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const modalElement = document.getElementById("reorderModal");
+                const modal = new coreui.Modal(modalElement);
+                modal.show();
+            });
+        </script>
+        ';
+
+        return redirect()->back()->with([
+            'question' => $question,
+            'availableOrders' => $availableOrders,
+            'script' => $script,
+        ]);
+    }
+
+    public function orderUpdate(UpdateOrderRequest $request, Question $question)
+    {
+        try {
+            DB::beginTransaction();
+
+            $validatedData = $request->validated();
+
+            $currentOrder = $question->order;
+
+            $question->update([
+                'order' => 0,
+            ]);
+
+            Question::where('exam_id', $question->exam_id)
+                ->where('order', $validatedData['to'])
+                ->first()
+                ->update([
+                    'order' => $currentOrder
+                ]);
+
+            $question->update([
+                'order' => $validatedData['to'],
+            ]);
+
+            DB::commit();
+
+            session()->flash('success', __('Urutan soal berhasil diperbarui'));
+
+            return redirect()->back();
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+
+            DB::rollBack();
+
+            session()->flash('error', __('Gagal memperbarui urutan soal'));
 
             return redirect()->back();
         }

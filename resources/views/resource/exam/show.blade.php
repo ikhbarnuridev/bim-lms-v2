@@ -129,12 +129,12 @@
 
                                         <div class="card-footer">
                                             <div class="d-flex justify-content-lg-end gap-2 flex-wrap">
-                                                <button class="btn btn-secondary flex-fill flex-lg-grow-0"
-                                                        onclick="handleDelete({{ $material->id }})"
+                                                <a class="btn btn-secondary flex-fill flex-lg-grow-0"
+                                                   href="{{ route('question.order.edit', $question) }}"
                                                 >
                                                     <x-heroicon-o-arrow-path height="20" width="20"/>
                                                     {{ __('Reorder') }}
-                                                </button>
+                                                </a>
 
                                                 <a class="btn btn-info flex-fill flex-lg-grow-0"
                                                    href="{{ route('question.show', [$material, $exam, $question]) }}"
@@ -201,6 +201,86 @@
             </div>
         </div>
     </div>
+
+    @php $question = session('question') @endphp
+    @php $availableOrders = session('availableOrders') @endphp
+    @if($question != null)
+        <div class="modal fade" id="reorderModal" data-coreui-backdrop="static" data-coreui-keyboard="false"
+             tabindex="-1"
+             aria-labelledby="reorderModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form action="{{ route('question.order.update', $question) }}" method="post">
+                        @csrf
+                        @method('put')
+
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title" id="reorderModalLabel">{{ __('Reorder') }}</h5>
+                            <button type="reset" class="btn-close" data-coreui-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body py-0">
+                            <div class="mb-3">
+                                <label for="from" class="form-label required">
+                                    {{ __('Posisi Awal') }}
+                                </label>
+                                <input
+                                    type="number"
+                                    class="form-control {{ $errors->first('from') != null ? 'is-invalid' : '' }}"
+                                    id="from"
+                                    name="from"
+                                    value="{{ $question->order }}"
+                                    disabled
+                                >
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('from') }}
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="to" class="form-label required">
+                                    {{ __('Posisi Tujuan') }}
+                                </label>
+                                <select
+                                    class="form-select {{ $errors->first('to') != null ? 'is-invalid' : '' }}"
+                                    id="to"
+                                    name="to"
+                                    required
+                                >
+                                    <option value="" selected>Pilih salah satu opsi</option>
+
+                                    @foreach($availableOrders as $order)
+                                        <option
+                                            value="{{ $order }}"
+                                            @if(old('to') == $order)
+                                                selected
+                                            @endif
+                                        >
+                                            {{ $order }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('to') }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0 pt-2 justify-content-start">
+                            <button type="submit" class="btn btn-primary my-0">
+                                <x-fas-save height="20" width="20"/>
+                                {{ __('Save') }}
+                            </button>
+                            <button type="reset" class="btn btn-secondary my-0"
+                                    data-coreui-dismiss="modal">
+                                {{ __('Cancel') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
 
 @push('script')
