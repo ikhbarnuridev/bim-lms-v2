@@ -5,12 +5,7 @@ namespace App\Http\Controllers\Resource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Content\UpdateOrderRequest;
 use App\Models\Content;
-use App\Models\ContentProgress;
-use App\Models\File;
-use App\Models\Student;
-use App\Services\ContentService;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -57,7 +52,7 @@ class ContentController extends Controller
                 ->where('order', $validatedData['to'])
                 ->first()
                 ->update([
-                    'order' => $currentOrder
+                    'order' => $currentOrder,
                 ]);
 
             $content->update([

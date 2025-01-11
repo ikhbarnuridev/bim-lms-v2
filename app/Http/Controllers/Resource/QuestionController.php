@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Content\UpdateOrderRequest;
 use App\Http\Requests\Question\StoreRequest;
 use App\Http\Requests\Question\UpdateRequest;
-use App\Models\Content;
 use App\Models\Exam;
 use App\Models\Material;
 use App\Models\Question;
@@ -156,7 +155,7 @@ class QuestionController extends Controller
                 ->where('order', $validatedData['to'])
                 ->first()
                 ->update([
-                    'order' => $currentOrder
+                    'order' => $currentOrder,
                 ]);
 
             $question->update([

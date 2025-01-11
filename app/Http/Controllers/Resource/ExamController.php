@@ -117,8 +117,30 @@ class ExamController extends Controller
         }
     }
 
-    public function destroy(Exam $exam)
+    public function destroy(Material $material, Exam $exam)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $exam->content()->forceDelete();
+            $exam->forceDelete();
+
+            ContentProgress::where('content_id', $exam->content_id)
+                ->forceDelete();
+
+            DB::commit();
+
+            session()->flash('success', __('Exam successfully deleted'));
+
+            return redirect()->route('material.show', $material);
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+
+            DB::rollBack();
+
+            session()->flash('error', __('Failed to delete exam'));
+
+            return redirect()->back();
+        }
     }
 }

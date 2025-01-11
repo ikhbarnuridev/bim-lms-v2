@@ -321,5 +321,12 @@
     "Failed to delete option": "Gagal meghapus pilihan",
     "Edit Option": "Ubah Pilihan",
     "Option successfully updated": "Pilihan berhasil diperbarui",
-    "Failed to update option": "Gagal memperbarui pilihan"
+    "Failed to update option": "Gagal memperbarui pilihan",
+    "View Article": "Lihat Artikel",
+    "Article successfully deleted": "Artikel berhasil dihapus",
+    "Failed to delete article": "Gagal meghapus artikel",
+    "Exam successfully deleted": "Latihan berhasil dihapus",
+    "Failed to delete exam": "Gagal meghapus latihan",
+    "Article successfully updated": "Artikel berhasil diperbarui",
+    "Failed to update article": "Gagal memperbarui artikel"
 }
