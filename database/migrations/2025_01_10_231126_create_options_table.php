@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->boolean('is_correct')->default(false);
+            $table->unsignedBigInteger('question_id');
 
             $table->timestamps();
             $table->softDeletes();

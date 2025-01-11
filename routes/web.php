@@ -17,6 +17,7 @@ use App\Http\Controllers\Resource\ArticleController;
 use App\Http\Controllers\Resource\ExamController;
 use App\Http\Controllers\Resource\FileController;
 use App\Http\Controllers\Resource\MaterialController;
+use App\Http\Controllers\Resource\OptionController;
 use App\Http\Controllers\Resource\QuestionController;
 use App\Http\Controllers\Resource\StudentController;
 use App\Http\Controllers\Resource\TeacherController;
@@ -79,7 +80,16 @@ Route::middleware(['auth'])->group(function () {
     Route::put('material/{material}/exam/{exam}', [ExamController::class, 'update'])->name('exam.update');
     Route::delete('material/{material}/exam/{exam}', [ExamController::class, 'destroy'])->name('exam.destroy');
 
+    Route::get('material/{material}/exam/{exam}/question/{question}', [QuestionController::class, 'show'])->name('question.show');
     Route::post('material/{material}/exam/{exam}/question', [QuestionController::class, 'store'])->name('question.store');
+    Route::get('material/{material}/exam/{exam}/question/{question}/edit', [QuestionController::class, 'edit'])->name('question.edit');
+    Route::put('material/{material}/exam/{exam}/question/{question}', [QuestionController::class, 'update'])->name('question.update');
+    Route::delete('material/{material}/exam/{exam}/question/{question}', [QuestionController::class, 'destroy'])->name('question.destroy');
+
+    Route::post('option/{question}', [OptionController::class, 'store'])->name('option.store');
+    Route::get('option/{option}/edit', [OptionController::class, 'edit'])->name('option.edit');
+    Route::put('option/{option}', [OptionController::class, 'update'])->name('option.update');
+    Route::delete('option/{option}', [OptionController::class, 'destroy'])->name('option.destroy');
 
     Route::get('my-material/list', [MyMaterialController::class, 'list'])->name('my-material.list');
     Route::get('my-material/{material}/detail', [MyMaterialController::class, 'detail'])->name('my-material.detail');

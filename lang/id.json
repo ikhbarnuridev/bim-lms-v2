@@ -306,5 +306,20 @@
     "Failed to edit exam": "Gagal memperbarui latihan",
     "Add Question": "Tambah Soal",
     "Question successfully added": "Soal berhasil ditambahkan",
-    "Failed to add question": "Gagal menambahkan soal"
+    "Failed to add question": "Gagal menambahkan soal",
+    "View Question" : "Lihat Soal",
+    "Option": "Pilihan",
+    "Add Option": "Tambah Pilihan",
+    "Option successfully added": "Pilihan berhasil ditambahkan",
+    "Failed to add option": "Gagal menambahkan pilihan",
+    "Question successfully deleted": "Soal berhasil dihapus",
+    "Failed to delete question": "Gagal meghapus soal",
+    "Edit Question": "Ubah Soal",
+    "Question successfully updated": "Soal berhasil diperbarui",
+    "Failed to update exam": "Gagal memperbarui soal",
+    "Option successfully deleted": "Pilihan berhasil dihapus",
+    "Failed to delete option": "Gagal meghapus pilihan",
+    "Edit Option": "Ubah Pilihan",
+    "Option successfully updated": "Pilihan berhasil diperbarui",
+    "Failed to update option": "Gagal memperbarui pilihan"
 }

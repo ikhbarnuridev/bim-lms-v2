@@ -86,7 +86,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title m-0">Soal Latihan</h2>
+                    <h2 class="card-title m-0">Daftar Soal</h2>
                 </div>
                 <div class="card-header">
                     <div class="d-flex justify-content-lg-center gap-2 flex-wrap">
@@ -137,7 +137,7 @@
                                                 </button>
 
                                                 <a class="btn btn-info flex-fill flex-lg-grow-0"
-                                                   href="#"
+                                                   href="{{ route('question.show', [$material, $exam, $question]) }}"
                                                 >
                                                     <x-heroicon-o-eye height="20" width="20"/>
                                                     {{ __('See') }}
