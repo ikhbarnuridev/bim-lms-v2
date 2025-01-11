@@ -68,8 +68,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/content/{content}/order/edit', [ContentController::class, 'orderEdit'])->name('content.order.edit');
     Route::put('/content/{content}/order', [ContentController::class, 'orderUpdate'])->name('content.order.update');
 
+    Route::get('/material/{material}/file/{file}', [FileController::class, 'show'])->name('file.show');
+    Route::get('/material/{material}/file/{file}/edit', [FileController::class, 'edit'])->name('file.edit');
+    Route::put('/material/{material}/file/{file}', [FileController::class, 'update'])->name('file.update');
     Route::post('/file/{material}', [FileController::class, 'store'])->name('file.store');
-    Route::get('/file/{file}', [FileController::class, 'show'])->name('file.show');
+    Route::delete('/material/{material}/file/{file}', [FileController::class, 'destroy'])->name('file.destroy');
     Route::get('/file/{file}/download', [FileController::class, 'download'])->name('file.download');
 
     Route::get('material/{material}/article/create', [ArticleController::class, 'create'])->name('article.create');

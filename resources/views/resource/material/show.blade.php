@@ -191,8 +191,7 @@
                                                     </a>
 
                                                     <a class="btn btn-info flex-fill flex-lg-grow-0"
-                                                       href="{{ route('file.show',  $content->file) }}"
-                                                       target="_blank"
+                                                       href="{{ route('file.show', [$material, $content->file]) }}"
                                                     >
                                                         <x-heroicon-o-eye height="20" width="20"/>
                                                         {{ __('See') }}

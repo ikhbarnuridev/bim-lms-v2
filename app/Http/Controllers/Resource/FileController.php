@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\File\StoreRequest;
+use App\Http\Requests\File\UpdateRequest;
 use App\Models\Content;
 use App\Models\ContentProgress;
 use App\Models\File;
@@ -11,17 +12,19 @@ use App\Models\Material;
 use App\Models\Student;
 use App\Services\ContentService;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File as FacadesFile;
 use Illuminate\Support\Facades\Log;
 
 class FileController extends Controller
 {
-    public function show(File $file)
+    public function show(Material $material, File $file)
     {
-        $filePath = public_path('storage/'.$file->path);
-
-        return response()->file($filePath);
+        return view('resource.file.show', [
+            'title' => __('View File'),
+            'material' => $material,
+            'file' => $file,
+        ]);
     }
 
     public function store(StoreRequest $request, Material $material)
@@ -69,14 +72,73 @@ class FileController extends Controller
         }
     }
 
-    public function update(Request $request, File $file)
+    public function edit(Material $material, File $file)
     {
-        //
+        return view('resource.file.edit', [
+            'title' => __('Edit File'),
+            'material' => $material,
+            'file' => $file,
+        ]);
     }
 
-    public function destroy(File $file)
+    public function update(UpdateRequest $request, Material $material, File $file)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $validatedData = $request->validated();
+
+            if (isset($validatedData['file'])) {
+                if (file_exists(public_path('storage/'.$file->path))) {
+                    FacadesFile::delete(public_path('storage/'.$file->path));
+                }
+
+                $validatedData['path'] = $validatedData['file']->store('material/file', 'public');
+            }
+
+            $file->update($validatedData);
+
+            DB::commit();
+
+            session()->flash('success', __('File successfully updated'));
+
+            return redirect()->back();
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+
+            DB::rollBack();
+
+            session()->flash('error', __('Failed to update file'));
+
+            return redirect()->back();
+        }
+    }
+
+    public function destroy(Material $material, File $file)
+    {
+        try {
+            DB::beginTransaction();
+
+            $file->content()->forceDelete();
+            $file->forceDelete();
+
+            ContentProgress::where('content_id', $file->content_id)
+                ->forceDelete();
+
+            DB::commit();
+
+            session()->flash('success', __('File successfully deleted'));
+
+            return redirect()->route('material.show', $material);
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+
+            DB::rollBack();
+
+            session()->flash('error', __('Failed to delete file'));
+
+            return redirect()->back();
+        }
     }
 
     public function download(File $file)

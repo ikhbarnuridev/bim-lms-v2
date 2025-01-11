@@ -328,5 +328,12 @@
     "Exam successfully deleted": "Latihan berhasil dihapus",
     "Failed to delete exam": "Gagal meghapus latihan",
     "Article successfully updated": "Artikel berhasil diperbarui",
-    "Failed to update article": "Gagal memperbarui artikel"
+    "Failed to update article": "Gagal memperbarui artikel",
+    "View File": "Lihat Berkas",
+    "Name": "Nama",
+    "File successfully deleted": "Beraks berhasil dihapus",
+    "Failed to delete file": "Gagal meghapus berkas",
+    "Edit File": "Ubah Berkas",
+    "File successfully updated": "Berkas berhasil diperbarui",
+    "Failed to update file": "Gagal memperbarui berkas"
 }

@@ -22,7 +22,15 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => ['required', 'file', 'mimes:pdf,docx,xlsx,jpg,png,zip', 'max:10240'],
+            'name' => ['required', 'string', 'max:255'],
+            'file' => ['nullable', 'file', 'mimes:pdf,docx,xlsx,jpg,png,zip', 'max:10240'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'file' => __('File'),
         ];
     }
 }

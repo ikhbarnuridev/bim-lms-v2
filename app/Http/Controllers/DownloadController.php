@@ -10,6 +10,6 @@ class DownloadController extends Controller
     {
         $file_path = public_path('storage/'.$request->get('filePath'));
 
-        return response()->download($file_path);
+        return response()->file($file_path);
     }
 }
