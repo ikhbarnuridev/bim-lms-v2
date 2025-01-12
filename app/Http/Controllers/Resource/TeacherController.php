@@ -124,13 +124,40 @@ class TeacherController extends Controller
     public function destroy(User $user)
     {
         try {
+            DB::beginTransaction();
+
+            $materials = $user->materials;
+            foreach ($materials as $material) {
+                foreach ($material->contents as $content) {
+                    $content->contentProgresses()->forceDelete();
+
+                    $type = $content->type;
+                    switch ($type) {
+                        case 'article':
+                            $content->article()->forceDelete();
+                        case 'file':
+                            $content->file()->forceDelete();
+                        case 'exam':
+                            $content->exam()->forceDelete();
+                    }
+
+                    $content->forceDelete();
+                }
+
+                $material->forceDelete();
+            }
+
             $user->forceDelete();
+
+            DB::commit();
 
             session()->flash('success', __('Teacher successfully deleted'));
 
             return redirect()->back();
         } catch (Exception $exception) {
             Log::error($exception->getMessage());
+
+            DB::rollBack();
 
             session()->flash('error', __('Failed to delete teacher'));
 
